@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     class ListViewColumnSorter : IComparer
     {

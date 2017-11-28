@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class ControlMain
     {
@@ -23,7 +23,7 @@ namespace XCustSyncMaster
         private StringBuilder sMonth = new StringBuilder();
         private StringBuilder sDay = new StringBuilder();
         public string[] args;
-        public String xcustpowebservice_run="", XCustSyncMasterwebservice_run="";
+        public String xcustpowebservice_run="", xcustprwebservice_run = "";
 
         public ControlMain()
         {
@@ -46,7 +46,7 @@ namespace XCustSyncMaster
                 {
                     //MessageBox.Show("arg[0] " + aaa[0]+"    arg[1] " + aaa[1], "arg[1] "+ aaa[1]);
                     xcustpowebservice_run = aaa[0].Equals("xcustpowebservice_run") ? aaa[1] : "";   //xcustpowebservice_run
-                    XCustSyncMasterwebservice_run = aaa[0].Equals("XCustSyncMasterwebservice_run") ? aaa[1] : "";
+                    xcustprwebservice_run = aaa[0].Equals("xcustprwebservice_run") ? aaa[1] : "";
                 }
             }
         }
@@ -841,7 +841,7 @@ namespace XCustSyncMaster
                          "<typ:uploadFiletoUCM> " +
                    "<typ:document> " +
                        "<!--Optional:--> " +
-                        "<web:fileName>XCustSyncMaster.zip</web:fileName> " +
+                        "<web:fileName>XcustSyncMaster.zip</web:fileName> " +
                              "<!--Optional:--> " +
                               "<web:contentType>application/zip</web:contentType> " +
                                      "<!--Optional:--> " +

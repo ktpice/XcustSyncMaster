@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class MaterialForm : Form, IMaterialControl
     {

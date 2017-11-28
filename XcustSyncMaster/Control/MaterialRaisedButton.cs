@@ -5,7 +5,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 using System;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class MaterialRaisedButton : Button, IMaterialControl
     {

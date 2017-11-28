@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class MaterialSingleLineTextField : Control, IMaterialControl
     {

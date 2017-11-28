@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     static class Program
     {
@@ -36,7 +36,7 @@ namespace XCustSyncMaster
             else
             {
 
-                Application.Run(new XcustValueSet(Cm));
+                Application.Run(new XCustPoRWebService(Cm));
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public sealed class MaterialDivider : Control, IMaterialControl
     {

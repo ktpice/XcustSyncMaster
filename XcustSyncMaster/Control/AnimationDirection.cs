@@ -1,4 +1,4 @@
-﻿namespace XCustSyncMaster
+﻿namespace XcustSyncMaster
 {
     enum AnimationDirection
     {

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class ColorScheme
     {

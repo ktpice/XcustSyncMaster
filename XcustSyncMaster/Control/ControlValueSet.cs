@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class ControlValueSet
     {

@@ -6,7 +6,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class MaterialFlatButton : Button, IMaterialControl
     {

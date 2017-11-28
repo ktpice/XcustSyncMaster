@@ -52,7 +52,9 @@
     <Compile Include="Control\AnimationManager.cs" />
     <Compile Include="Control\Animations.cs" />
     <Compile Include="Control\ColorScheme.cs" />
+    <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlMain.cs" />
+    <Compile Include="Control\ControlPoRWebService.cs" />
     <Compile Include="Control\ControlValueSet.cs" />
     <Compile Include="Control\DrawHelper.cs" />
     <Compile Include="Control\IMaterialControl.cs" />
@@ -103,15 +105,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\XCustPoRWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\XcustValueSet.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\XCustBlanketHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\XCustBlanketHeader.Designer.cs">
+      <DependentUpon>XCustBlanketHeader.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\ConnectDB.cs" />
+    <Compile Include="objdb\XcustBlanketHeaderTblDB.cs" />
+    <Compile Include="objdb\XcustPoReceiptTblDB.cs" />
     <Compile Include="objdb\XcustValueSetMstTblDB.cs" />
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitC.cs" />
     <Compile Include="object1\ListViewColumnSorter.cs" />
     <Compile Include="object1\Persistent.cs" />
+    <Compile Include="object1\XcustBlanketHeaderTbl.cs" />
+    <Compile Include="object1\XcustPoReceiptTbl.cs" />
     <Compile Include="object1\XcustValueSetMstTbl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

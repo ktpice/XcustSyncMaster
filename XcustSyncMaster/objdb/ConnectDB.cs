@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XCustSyncMaster
+namespace XcustSyncMaster
 {
     public class ConnectDB
     {

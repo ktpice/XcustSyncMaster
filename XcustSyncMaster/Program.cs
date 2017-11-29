@@ -37,7 +37,8 @@ namespace XcustSyncMaster
             else
             {
                 //Application.Run(new XCustPoRWebService(Cm));
-                Application.Run(new XCustGlPeriodWebService(Cm));
+                //Application.Run(new XCustGlPeriodWebService(Cm));
+                Application.Run(new XCustApSourceWebService(Cm));
             }
 
 

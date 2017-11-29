@@ -22,3 +22,4 @@ D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaste
 D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.dll
 D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.pdb
 D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.xml
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.csprojResolveAssemblyReference.cache

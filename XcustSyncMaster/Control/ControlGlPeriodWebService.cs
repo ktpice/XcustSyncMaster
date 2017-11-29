@@ -72,20 +72,6 @@ namespace XcustSyncMaster
                                 "<v2:attributeTemplate>XCUST_GL_PERIOD_MST_REP</v2:attributeTemplate> " +
                                 "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_GL_PERIOD_MST_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
-                                "<pub:item> " +
-                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_create_from</pub:name> " +
-                                    "<pub:values> " +
-                                        "<pub:item></pub:item> " +
-                                    "</pub:values>" +
-                                "</pub:item>" +
-                                "<pub:item>" +
-                                "<pub:multiValuesAllowed>False</pub:multiValuesAllowed>" +
-                                "<pub:name>p_create_to</pub:name>" +
-                                "<pub:values>" +
-                                "<pub:item></pub:item>" +
-                                "</pub:values>" +
-                                "</pub:item> " +
                                 "<pub:item>" +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_from</pub:name> " +
@@ -182,13 +168,13 @@ namespace XcustSyncMaster
                 XcustGlPeriodMstTbl item = new XcustGlPeriodMstTbl();
                 //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
                 //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.LEDGER_ID = data2[4].Trim();
-                item.PERIOD_NAME = data2[5].Trim();
-                item.START_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[6].Trim());
-                item.END_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[7].Trim());
-                item.PERIOD_YEAR = data2[8].Trim().Equals("") ? "0" : data2[8].Trim();
-                item.EFFECTIVE_PERIOD_NUM = data2[9].Trim().Equals("") ? "0" : data2[9].Trim();
-                item.PERIOD_NUM = data2[10].Trim().Equals("") ? "0" : data2[10].Trim();
+                item.LEDGER_ID = data2[2].Trim();
+                item.PERIOD_NAME = data2[3].Trim();
+                item.START_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[4].Trim());
+                item.END_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[5].Trim());
+                item.PERIOD_YEAR = data2[6].Trim().Equals("") ? "0" : data2[6].Trim();
+                item.EFFECTIVE_PERIOD_NUM = data2[7].Trim().Equals("") ? "0" : data2[7].Trim();
+                item.PERIOD_NUM = data2[8].Trim().Equals("") ? "0" : data2[8].Trim();
 
 
 

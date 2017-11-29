@@ -24,7 +24,7 @@ namespace XcustSyncMaster
         private StringBuilder sDay = new StringBuilder();
         public string[] args;
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
-        public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustAPEntitywebservice_run = ""; //kwl 20171129
+        public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustGLEntitywebservice_run = ""; //kwl 20171129
 
         public ControlMain()
         {
@@ -50,7 +50,7 @@ namespace XcustSyncMaster
                     xcustprwebservice_run = aaa[0].Equals("xcustprwebservice_run") ? aaa[1] : "";
                     xcustGlPwebservice_run = aaa[0].Equals("xcustGlPwebservice_run") ? aaa[1] : ""; //kwl 20171129
                     xcustAPSourcewebservice_run = aaa[0].Equals("xcustAPSourcewebservice_run") ? aaa[1] : ""; //kwl 20171129
-                    xcustAPEntitywebservice_run = aaa[0].Equals("xcustAPEntitywebservice_run") ? aaa[1] : ""; //kwl 20171129
+                    xcustGLEntitywebservice_run = aaa[0].Equals("xcustGLEntitywebservice_run") ? aaa[1] : ""; //kwl 20171129
 
                 }
             }

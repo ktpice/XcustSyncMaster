@@ -25,6 +25,7 @@ namespace XcustSyncMaster
             Cm.args = args;
             Cm.setAgrument();
             //MessageBox.Show("args "+ args.Length, "");
+
             if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("xcustvalueset"))
             {
                 Application.Run(new XcustValueSet(Cm));
@@ -35,9 +36,11 @@ namespace XcustSyncMaster
             }
             else
             {
-
-                Application.Run(new XCustPoRWebService(Cm));
+                //Application.Run(new XCustPoRWebService(Cm));
+                Application.Run(new XCustGlPeriodWebService(Cm));
             }
+
+
         }
     }
 }

@@ -24,6 +24,7 @@ namespace XcustSyncMaster
         private StringBuilder sDay = new StringBuilder();
         public string[] args;
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
+        public String xcustGlPwebservice_run = "";
 
         public ControlMain()
         {
@@ -47,6 +48,7 @@ namespace XcustSyncMaster
                     //MessageBox.Show("arg[0] " + aaa[0]+"    arg[1] " + aaa[1], "arg[1] "+ aaa[1]);
                     xcustpowebservice_run = aaa[0].Equals("xcustpowebservice_run") ? aaa[1] : "";   //xcustpowebservice_run
                     xcustprwebservice_run = aaa[0].Equals("xcustprwebservice_run") ? aaa[1] : "";
+                    xcustGlPwebservice_run = aaa[0].Equals("xcustGlPwebservice_run") ? aaa[1] : ""; //kwl 20171129
                 }
             }
         }
@@ -408,6 +410,8 @@ namespace XcustSyncMaster
             initC.AutoRunPO006 = iniFile.Read("AutoRunPO006");
 
             initC.PathMaster = iniFile.Read("PathMaster");
+
+            initC.AutoGlPeriod = iniFile.Read("AutoGlPeriod");  //kwl 20171129
 
             initC.PO005PathArchive = iniFile.Read("PO005PathArchive").Trim();    //bit
             initC.PO005PathError = iniFile.Read("PO005PathError").Trim();

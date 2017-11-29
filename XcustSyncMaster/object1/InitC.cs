@@ -40,6 +40,8 @@ namespace XcustSyncMaster
 
         public String PathMaster = "";
 
+        public String AutoGlPeriod = ""; //kwl 20171129
+
         public String EmailPort = "3306";
         public String EmailCharset = "hisorc_ma";        //orc master
         public String EmailUsername = "172.25.1.153";

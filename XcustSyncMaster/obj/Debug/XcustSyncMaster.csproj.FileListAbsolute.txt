@@ -10,3 +10,15 @@ C:\I-Work\RD.net\XcustSyncMaster\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlA
 C:\I-Work\RD.net\XcustSyncMaster\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.Properties.Resource1.resources
 C:\I-Work\RD.net\XcustSyncMaster\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.exe
 C:\I-Work\RD.net\XcustSyncMaster\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.pdb
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.Properties.Resource1.resources
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.Properties.Resources.resources
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.csproj.GenerateResource.Cache
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.csproj.CoreCompileInputs.cache
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.exe
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.pdb
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaster.exe.config
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaster.exe
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaster.pdb
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.dll
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.pdb
+D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.xml

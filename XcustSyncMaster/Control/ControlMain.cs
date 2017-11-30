@@ -29,6 +29,7 @@ namespace XcustSyncMaster
         public String xcustblanketheader_run = ""; //ktp 20171130
         public String xcustitemmstwebservice_run = ""; //kts
         public String xcustsubinvmstwebservice_run = "";  //kts
+        public String xcustuommstwebservice_run = "";  //kts
 
         public ControlMain()
         {
@@ -60,6 +61,7 @@ namespace XcustSyncMaster
                     xcustTaxCodewebservice_run = aaa[0].Equals("xcustSupplierSitewebservice_run") ? aaa[1] : ""; //kwl 20171130
                     xcustitemmstwebservice_run = aaa[0].Equals("xcustitemmstwebservice_run") ? aaa[1] : ""; //kts
                     xcustitemmstwebservice_run = aaa[0].Equals("xcustsubinvmstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustuommstwebservice_run = aaa[0].Equals("xcustuommstwebservice_run") ? aaa[1] : ""; //kts
 
                 }
             }
@@ -423,6 +425,7 @@ namespace XcustSyncMaster
 
             initC.AutoItemMaster = iniFile.Read("AutoItemMaster"); //kts
             initC.AutoSubInvMaster = iniFile.Read("AutoSubInvMaster"); //kts
+            initC.AutoUomMaster = iniFile.Read("AutoUomMaster"); //kts
 
             initC.PathMaster = iniFile.Read("PathMaster");
 

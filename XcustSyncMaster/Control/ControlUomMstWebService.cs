@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace XcustSyncMaster
 {
-    public class ControlSubInvMstWebService
+    public class ControlUomMstWebService
     {
         static String fontName = "Microsoft Sans Serif";        //standard
         public String backColor1 = "#1E1E1E";        //standard
@@ -30,9 +30,9 @@ namespace XcustSyncMaster
 
         private String dateStart = "";      //gen log
 
-        public XcustSubInvMstTblDB xCISubDB;
+        public XcustUomMstTblDB xCIUomDB;
 
-        public ControlSubInvMstWebService(ControlMain cm)
+        public ControlUomMstWebService(ControlMain cm)
         {
             Cm = cm;
             initConfig();
@@ -41,21 +41,21 @@ namespace XcustSyncMaster
         {
             conn = new ConnectDB("kfc_po", Cm.initC);        //standard
 
-            xCISubDB = new XcustSubInvMstTblDB(conn, Cm.initC);
+            xCIUomDB = new XcustUomMstTblDB(conn, Cm.initC);
 
             fontSize9 = 9.75f;        //standard
             fontSize8 = 8.25f;        //standard
             fV1B = new Font(fontName, fontSize9, FontStyle.Bold);        //standard
             fV1 = new Font(fontName, fontSize8, FontStyle.Regular);        //standard
         }
-        public void setXcustSUBTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
+        public void setXcustUOMTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
         {
             String uri = "", dump = "";
             //HttpWebRequest request = CreateWebRequest();
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustSUBTbl ", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -68,8 +68,8 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_SUBINVENTORY_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_SUBINVENTORY_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_MAS_UOM_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_MAS_UOM_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
@@ -95,7 +95,7 @@ namespace XcustSyncMaster
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustSUBTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
             byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
@@ -118,13 +118,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustSUBTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustSUBTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustUOMTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -146,7 +146,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustSUBTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);
@@ -164,19 +164,19 @@ namespace XcustSyncMaster
                 if (data1[row].Length <= 0) continue;
                 
                 String[] data2 = data1[row].Split(',');
-                XcustSubInvMstTbl subinv = new XcustSubInvMstTbl();
-                subinv.ORGANIZATION_ID = data2[0].Trim().ToString();
-                subinv.SUBINVENTORY_ID = data2[1].Trim().ToString();
-                subinv.SECONDARY_INVENTORY_NAME = data2[2].Trim().Replace("\"", "");
-                subinv.DESCRIPTION = data2[3].Trim().Replace("\"", "");
-                subinv.LOCATOR_TYPE = data2[4].Trim().Replace("\"", "");
-                subinv.LAST_UPDATE_DATE = data2[5].Trim().Replace("\"", "");
-                subinv.CREATION_DATE = data2[6].Trim().Replace("\"", "");
-                subinv.attribute1 = data2[7].Trim().Replace("\"", "");
-                subinv.attribute2 = data2[8].Trim().Replace("\"", "");
-                subinv.attribute3 = data2[9].Trim().Replace("\"", "");
+                XcustUomMstTbl uom = new XcustUomMstTbl();
+                uom.UNIT_OF_MEASURE_ID = data2[0].Trim().ToString();
+                uom.UOM_CODE = data2[1].Trim().ToString();
+                uom.DISABLE_DATE = data2[2].Trim().Replace("\"", "");
+                uom.LAST_UPDATE_DATE = data2[3].Trim().Replace("\"", "");
+                uom.CREATION_DATE = data2[4].Trim().Replace("\"", "");
+                uom.LAST_UPDATE_DATE = data2[5].Trim().Replace("\"", "");
+                uom.CREATION_DATE = data2[6].Trim().Replace("\"", "");
+                uom.attribute1 = data2[7].Trim().Replace("\"", "");
+                uom.uom_name = data2[8].Trim().Replace("\"", "");
+                uom.uom_description = data2[9].Trim().Replace("\"", "");
                 //MessageBox.Show("111"+item.CREATION_DATE);
-                xCISubDB.insertxCSubInvMst(subinv); 
+                xCIUomDB.insertxCUomMst(uom); 
       
             }
             Console.WriteLine(decodedString);

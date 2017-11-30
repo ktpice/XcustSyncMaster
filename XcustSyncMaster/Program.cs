@@ -42,6 +42,10 @@ namespace XcustSyncMaster
             {
                 Application.Run(new XCustSubInvMstWebService(Cm));
             }
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustSubInvMstWebService"))
+            {
+                Application.Run(new XCustUomMstWebService(Cm));
+            }
             else
             {
                 //Application.Run(new XCustPoRWebService(Cm));
@@ -51,7 +55,8 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustTaxCodeWebService(Cm));
                 //Application.Run(new XCustSupplierSiteWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
-                Application.Run(new XCustSubInvMstWebService(Cm));  //kts
+                //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
+                Application.Run(new XCustUomMstWebService(Cm));  //kts
             }
 
 

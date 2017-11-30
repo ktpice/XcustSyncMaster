@@ -55,6 +55,7 @@
     <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlApSourceWebService.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
+    <Compile Include="Control\ControlUomMstWebService.cs" />
     <Compile Include="Control\ControlSupplierWebService.cs" />
     <Compile Include="Control\ControlTaxCodeWebService.cs" />
     <Compile Include="Control\ControlItemMstWebService.cs" />
@@ -139,6 +140,9 @@
     <Compile Include="gui\XCustSubInvMstWebService.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\XCustUomMstWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\XcustValueSet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +157,7 @@
     <Compile Include="objdb\XcustSupplierMstTblDB.cs" />
     <Compile Include="objdb\XcustTaxCodeMstTblDB.cs" />
     <Compile Include="objdb\XcustSubInvMstTblDB.cs" />
+    <Compile Include="objdb\XcustUomMstTblDB.cs" />
     <Compile Include="objdb\XcustValueSetMstTblDB.cs" />
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitC.cs" />
@@ -168,6 +173,7 @@
     <Compile Include="object1\XcustSupplierMstTbl.cs" />
     <Compile Include="object1\XcustTaxCodeMstTbl.cs" />
     <Compile Include="object1\XcustSubInvMstTbl.cs" />
+    <Compile Include="object1\XcustUomMstTbl.cs" />
     <Compile Include="object1\XcustValueSetMstTbl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

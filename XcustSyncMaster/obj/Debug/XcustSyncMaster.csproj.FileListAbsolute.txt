@@ -22,3 +22,15 @@ D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaste
 D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.dll
 D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.pdb
 D:\A ICE Project\GitHub\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.xml
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.Properties.Resource1.resources
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.Properties.Resources.resources
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.csproj.GenerateResource.Cache
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.csproj.CoreCompileInputs.cache
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.exe
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\obj\Debug\XcustSyncMaster.pdb
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaster.exe.config
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaster.exe
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\bin\Debug\XcustSyncMaster.pdb
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.dll
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.pdb
+D:\ICE CONSULTING\RD\PROJECT_RDCUST\XcustSyncMaster\XcustSyncMaster\bin\Debug\HtmlAgilityPack.xml

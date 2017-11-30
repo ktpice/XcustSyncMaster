@@ -34,12 +34,22 @@ namespace XcustSyncMaster
             {
                 Application.Run(new XcustValueSet(Cm));
             }
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustItemMstWebService"))
+            {
+                Application.Run(new XCustItemMstWebService(Cm));
+            }
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustSubInvMstWebService"))
+            {
+                Application.Run(new XCustSubInvMstWebService(Cm));
+            }
             else
             {
                 //Application.Run(new XCustPoRWebService(Cm));
                 //Application.Run(new XCustGlPeriodWebService(Cm));
                 //Application.Run(new XCustApSourceWebService(Cm));
-                Application.Run(new XCustGlEntityWebService(Cm));
+                //Application.Run(new XCustGlEntityWebService(Cm)); 
+                Application.Run(new XCustSubInvMstWebService(Cm));  //kts
+
             }
 
 

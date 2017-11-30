@@ -55,9 +55,11 @@
     <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlApSourceWebService.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
+    <Compile Include="Control\ControlItemMstWebService.cs" />
     <Compile Include="Control\ControlMain.cs" />
     <Compile Include="Control\ControlGlPeriodWebService.cs" />
     <Compile Include="Control\ControlPoRWebService.cs" />
+    <Compile Include="Control\ControlSubInvMstWebService.cs" />
     <Compile Include="Control\ControlValueSet.cs" />
     <Compile Include="Control\DrawHelper.cs" />
     <Compile Include="Control\IMaterialControl.cs" />
@@ -121,7 +123,13 @@
     <Compile Include="gui\XCustGlPeriodWebService.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\XCustItemMstWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\XCustPoRWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\XCustSubInvMstWebService.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XcustValueSet.cs">
@@ -132,7 +140,9 @@
     <Compile Include="objdb\XcustApSourceMstTblDB.cs" />
     <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustGlPeriodMstTblDB.cs" />
+    <Compile Include="objdb\XcustItemMstTblDB.cs" />
     <Compile Include="objdb\XcustPoReceiptTblDB.cs" />
+    <Compile Include="objdb\XcustSubInvMstTblDB.cs" />
     <Compile Include="objdb\XcustValueSetMstTblDB.cs" />
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitC.cs" />
@@ -142,7 +152,9 @@
     <Compile Include="object1\XcustApSourceMstTbl.cs" />
     <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustGlPeriodMstTbl.cs" />
+    <Compile Include="object1\XcustItemMstTbl.cs" />
     <Compile Include="object1\XcustPoReceiptTbl.cs" />
+    <Compile Include="object1\XcustSubInvMstTbl.cs" />
     <Compile Include="object1\XcustValueSetMstTbl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

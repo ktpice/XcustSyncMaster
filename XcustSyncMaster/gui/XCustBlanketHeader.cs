@@ -42,7 +42,7 @@ namespace XcustSyncMaster
         {
             cPoRWS = new ControlPoRWebService(Cm);
 
-            initCompoment();
+            //initCompoment();
             pB1.Visible = false;
             lvwColumnSorter = new ListViewColumnSorter();
             lvwColumnSorter.Order = SortOrder.Descending;

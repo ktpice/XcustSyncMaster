@@ -25,6 +25,7 @@ namespace XcustSyncMaster
         public string[] args;
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
         public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustGLEntitywebservice_run = ""; //kwl 20171129
+        public String xcustblanketheader_run = ""; //ktp 20171130
 
         public ControlMain()
         {

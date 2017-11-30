@@ -36,7 +36,7 @@ namespace XcustSyncMaster
             initConfig();
             cTxtL = txtFileName.BackColor;
             cTxtE = Color.Yellow;
-            this.Text = "Last Update 2017-11-28 ";
+            this.Text = "Last Update 2017-11-29 ";
         }
         private void initConfig()
         {
@@ -112,8 +112,6 @@ namespace XcustSyncMaster
             Controls.Add(btnRead);
             btnRead.Location = new System.Drawing.Point(grd1, line1);
             btnRead.Click += btnRead_Click;
-
-
 
             pB1 = new MaterialProgressBar();
             Controls.Add(pB1);

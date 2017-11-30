@@ -41,12 +41,12 @@ namespace XcustSyncMaster
 
             xCGl.table = "XCUST_LEGAL_ENTITY_MST_TBL";
         }
-        public Boolean selectDupPk(String RegistrationId)
+        public Boolean selectDupPk(String RegistrationId, String BranchNumber)
         {
             String sql = "";
             Boolean chk = false;
             DataTable dt = new DataTable();
-            sql = "Select count(1) as cnt From " + xCGl.table + " Where " + xCGl.REGISTRATION_ID + "=" + RegistrationId;
+            sql = "Select count(1) as cnt From " + xCGl.table + " Where " + xCGl.REGISTRATION_ID + "=" + RegistrationId + " AND " + xCGl.BRANCH_NUMBER + " = '" + BranchNumber + "'";
             dt = conn.selectData(sql, "kfc_po");
             if (dt.Rows.Count >= 1)
             {
@@ -54,17 +54,17 @@ namespace XcustSyncMaster
             }
             return chk;
         }
-        public void deletexCGl(String RegistrationId)
+        public void deletexCGl(String RegistrationId, String BranchNumber)
         {
-            String sql = "Delete From " + xCGl.table + " Where " + xCGl.REGISTRATION_ID + "=" + RegistrationId;
+            String sql = "Delete From " + xCGl.table + " Where " + xCGl.REGISTRATION_ID + "=" + RegistrationId + " AND " + xCGl.BRANCH_NUMBER + " = '" + BranchNumber + "'";
             conn.ExecuteNonQuery(sql, "kfc_po");
         }
         public String insertxCGl(XcustGlEntityMstTbl p)
         {
             String sql = "", chk = "";
-            if (selectDupPk(p.REGISTRATION_ID))
+            if (selectDupPk(p.REGISTRATION_ID, p.BRANCH_NUMBER))
             {
-                deletexCGl(p.REGISTRATION_ID);
+                deletexCGl(p.REGISTRATION_ID, p.BRANCH_NUMBER);
             }
             chk = insert(p);
             return chk;
@@ -91,16 +91,16 @@ namespace XcustSyncMaster
                                        xCGl.ADDRESS_LINE_3 + "," +
                                        xCGl.TOWN_OR_CITY + "," + 
                                        xCGl.REGION_2 + "," +
-                                       xCGl.POSTAL_CODE + " " +
-                                       xCGl.COUNTRY + " " +
+                                       xCGl.POSTAL_CODE + "," +
+                                       xCGl.COUNTRY +
                     ") " +
 
                 "Values( " + p.REGISTRATION_ID + ",'" +
-                    p.BRANCH_NUMBER + ",'" + p.REGISTERED_NAME + "','" + 
+                    p.BRANCH_NUMBER + "','" + p.REGISTERED_NAME + "','" + 
                     p.REGISTRATION_NUMBER + "','" + p.ADDRESS_LINE_1 + "','" +
                     p.ADDRESS_LINE_2 + "','" + p.ADDRESS_LINE_3 + "','" +
                     p.TOWN_OR_CITY + "','" + p.REGION_2 + "','" +
-                    p.POSTAL_CODE + "','" + p.POSTAL_CODE + "'" +
+                    p.POSTAL_CODE + "','" + p.COUNTRY + "'" +
                     ") ";
 
                 //MessageBox.Show(sql);

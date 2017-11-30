@@ -26,6 +26,8 @@ namespace XcustSyncMaster
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
         public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustGLEntitywebservice_run = ""; //kwl 20171129
         public String xcustblanketheader_run = ""; //ktp 20171130
+        public String xcustitemmstwebservice_run = ""; //kts
+        public String xcustsubinvmstwebservice_run = "";  //kts
 
         public ControlMain()
         {
@@ -52,6 +54,8 @@ namespace XcustSyncMaster
                     xcustGlPwebservice_run = aaa[0].Equals("xcustGlPwebservice_run") ? aaa[1] : ""; //kwl 20171129
                     xcustAPSourcewebservice_run = aaa[0].Equals("xcustAPSourcewebservice_run") ? aaa[1] : ""; //kwl 20171129
                     xcustGLEntitywebservice_run = aaa[0].Equals("xcustGLEntitywebservice_run") ? aaa[1] : ""; //kwl 20171129
+                    xcustitemmstwebservice_run = aaa[0].Equals("xcustitemmstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustitemmstwebservice_run = aaa[0].Equals("xcustsubinvmstwebservice_run") ? aaa[1] : ""; //kts
 
                 }
             }
@@ -412,6 +416,9 @@ namespace XcustSyncMaster
             initC.AutoValueSet = iniFile.Read("AutoValueSet");
             initC.AutoRunPO002 = iniFile.Read("AutoRunPO002");
             initC.AutoRunPO006 = iniFile.Read("AutoRunPO006");
+
+            initC.AutoItemMaster = iniFile.Read("AutoItemMaster"); //kts
+            initC.AutoSubInvMaster = iniFile.Read("AutoSubInvMaster"); //kts
 
             initC.PathMaster = iniFile.Read("PathMaster");
 

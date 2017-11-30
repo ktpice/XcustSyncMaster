@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace XcustSyncMaster
 {
-    public class XCustGlPeriodWebService: Form
+    public class XCustTaxCodeWebService: Form
     {
         int gapLine = 5;
         int grd0 = 0, grd1 = 100, grd2 = 240, grd3 = 320, grd4 = 570, grd5 = 700, grd51 = 700, grd6 = 820, grd7 = 900, grd8 = 1070, grd9 = 1200;
@@ -25,10 +25,10 @@ namespace XcustSyncMaster
         Color cTxtL, cTxtE, cForm;
 
         ControlMain Cm;
-        ControlGlPeriodWebService cGlPWS;
+        ControlTaxCodeWebService cTxCWS;
         private ListViewColumnSorter lvwColumnSorter;
 
-        public XCustGlPeriodWebService(ControlMain cm)
+        public XCustTaxCodeWebService(ControlMain cm)
         {
             this.Size = new Size(formwidth, formheight);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -40,7 +40,7 @@ namespace XcustSyncMaster
         }
         private void initConfig()
         {
-            cGlPWS = new ControlGlPeriodWebService(Cm);
+            cTxCWS = new ControlTaxCodeWebService(Cm);
 
             initCompoment();
             pB1.Visible = false;
@@ -56,9 +56,9 @@ namespace XcustSyncMaster
             lv1.ListViewItemSorter = lvwColumnSorter;
 
             lb2.Text = lb2.Text + " " + Cm.xcustGlPwebservice_run;
-            if (Cm.xcustGlPwebservice_run.ToLower().Equals("on"))
+            if (Cm.xcustTaxCodewebservice_run.ToLower().Equals("on"))
             {
-                cGlPWS.setXcustGlPTbl(lv1, this, pB1);
+                cTxCWS.setXcustTxCTbl(lv1, this, pB1);
             }
             //int i = 1;
         }
@@ -81,32 +81,32 @@ namespace XcustSyncMaster
             line5 = 270 + gapLine;
 
             lb1 = new MaterialLabel();
-            lb1.Font = cGlPWS.fV1;
+            lb1.Font = cTxCWS.fV1;
             lb1.Text = "Text File";
             lb1.AutoSize = true;
             Controls.Add(lb1);
-            lb1.Location = new System.Drawing.Point(cGlPWS.formFirstLineX, cGlPWS.formFirstLineY + gapLine);
+            lb1.Location = new System.Drawing.Point(cTxCWS.formFirstLineX, cTxCWS.formFirstLineY + gapLine);
 
             lb2 = new MaterialLabel();
-            lb2.Font = cGlPWS.fV1;
-            lb2.Text = "Program Name Xcust GL Period Master Webservice";
+            lb2.Font = cTxCWS.fV1;
+            lb2.Text = "Program Name Xcust Tax Code Master Webservice";
             lb2.AutoSize = true;
             Controls.Add(lb2);
-            lb2.Location = new System.Drawing.Point(grd3, cGlPWS.formFirstLineY + gapLine);
+            lb2.Location = new System.Drawing.Point(grd3, cTxCWS.formFirstLineY + gapLine);
 
             txtFileName = new MaterialSingleLineTextField();
-            txtFileName.Font = cGlPWS.fV1;
+            txtFileName.Font = cTxCWS.fV1;
             txtFileName.Text = "";
             txtFileName.Size = new System.Drawing.Size(300 - grd1 - 20 - 30, ControlHeight);
             Controls.Add(txtFileName);
-            txtFileName.Location = new System.Drawing.Point(grd1, cGlPWS.formFirstLineY + gapLine);
+            txtFileName.Location = new System.Drawing.Point(grd1, cTxCWS.formFirstLineY + gapLine);
             txtFileName.Hint = lb1.Text;
             txtFileName.Enter += txtFileName_Enter;
             txtFileName.Leave += txtFileName_Leave;
 
 
             btnRead = new MaterialFlatButton();
-            btnRead.Font = cGlPWS.fV1;
+            btnRead.Font = cTxCWS.fV1;
             btnRead.Text = "Web Service";
             btnRead.Size = new System.Drawing.Size(30, ControlHeight);
             Controls.Add(btnRead);
@@ -118,13 +118,13 @@ namespace XcustSyncMaster
             pB1 = new MaterialProgressBar();
             Controls.Add(pB1);
             pB1.Size = new System.Drawing.Size(formwidth - 40, pB1.Height);
-            pB1.Location = new System.Drawing.Point(cGlPWS.formFirstLineX + 5, line41);
+            pB1.Location = new System.Drawing.Point(cTxCWS.formFirstLineX + 5, line41);
 
             lv1 = new MaterialListView();
-            lv1.Font = cGlPWS.fV1;
+            lv1.Font = cTxCWS.fV1;
             lv1.FullRowSelect = true;
             lv1.Size = new System.Drawing.Size(formwidth - 40, formheight - line3 - 100);
-            lv1.Location = new System.Drawing.Point(cGlPWS.formFirstLineX + 5, line42);
+            lv1.Location = new System.Drawing.Point(cTxCWS.formFirstLineX + 5, line42);
             lv1.FullRowSelect = true;
             lv1.View = View.Details;
             //lv1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,7 +134,7 @@ namespace XcustSyncMaster
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            cGlPWS.setXcustGlPTbl(lv1, this, pB1);
+            cTxCWS.setXcustTxCTbl(lv1, this, pB1);
         }
         private void txtFileName_Leave(object sender, EventArgs e)
         {

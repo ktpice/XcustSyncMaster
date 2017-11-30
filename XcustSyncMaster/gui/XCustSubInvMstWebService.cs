@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace XcustSyncMaster
 {
-   public class XcustBlanketHeader:Form
+    public class XCustSubInvMstWebService: Form
     {
         int gapLine = 5;
         int grd0 = 0, grd1 = 100, grd2 = 240, grd3 = 320, grd4 = 570, grd5 = 700, grd51 = 700, grd6 = 820, grd7 = 900, grd8 = 1070, grd9 = 1200;
         int line1 = 35, line2 = 27, line3 = 85, line4 = 105, line41 = 120, line42 = 111, line5 = 270, ControlHeight = 21, lineGap = 5;
 
         int formwidth = 860, formheight = 740;
-
+        
         MaterialLabel lb1, lb2;
         MaterialSingleLineTextField txtFileName;
         MaterialFlatButton btnRead, btnPrepare, btnWebService, btnFTP, btnEmail;
@@ -25,10 +25,10 @@ namespace XcustSyncMaster
         Color cTxtL, cTxtE, cForm;
 
         ControlMain Cm;
-        ControlBlanketHeader cBlKH;
+        ControlSubInvMstWebService cISubWS;
         private ListViewColumnSorter lvwColumnSorter;
 
-        public XcustBlanketHeader(ControlMain cm)
+        public XCustSubInvMstWebService(ControlMain cm)
         {
             this.Size = new Size(formwidth, formheight);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -36,34 +36,32 @@ namespace XcustSyncMaster
             initConfig();
             cTxtL = txtFileName.BackColor;
             cTxtE = Color.Yellow;
-            this.Text = "Last Update 2017-11-08 ";
+            this.Text = "Last Update 2017-11-29 ";
         }
-
         private void initConfig()
         {
-            cBlKH = new ControlBlanketHeader(Cm);
+            cISubWS = new ControlSubInvMstWebService(Cm);
 
-            //initCompoment();
+            initCompoment();
             pB1.Visible = false;
             lvwColumnSorter = new ListViewColumnSorter();
             lvwColumnSorter.Order = SortOrder.Descending;
             lvwColumnSorter.SortColumn = 0;
             lv1.Sort();
             //txtFileName.Text = cRDPO.initC.PathInitial + "PR03102017.txt";
-            txtFileName.Text = Cm.initC.AutoValueSet;
+            txtFileName.Text = Cm.initC.AutoItemMaster;
 
             lv1.Columns.Add("NO", 50);
             lv1.Columns.Add("List File", formwidth - 50 - 40 - 100, HorizontalAlignment.Left);
             lv1.Columns.Add("   process   ", 100, HorizontalAlignment.Center);
             lv1.ListViewItemSorter = lvwColumnSorter;
 
-            lb2.Text = lb2.Text + " " + Cm.xcustblanketheader_run;
-            if (Cm.xcustblanketheader_run.ToLower().Equals("on"))
+            lb2.Text = lb2.Text + " " + Cm.xcustitemmstwebservice_run;
+            if (Cm.xcustprwebservice_run.ToLower().Equals("on"))
             {
-                cBlKH.setXcustBlkHTbl(lv1, this, pB1);
+                cISubWS.setXcustSUBTbl(lv1, this, pB1);
             }
             //int i = 1;
-
         }
         private void disableBtn()
         {
@@ -84,32 +82,32 @@ namespace XcustSyncMaster
             line5 = 270 + gapLine;
 
             lb1 = new MaterialLabel();
-            lb1.Font = cBlKH.fV1;
+            lb1.Font = cISubWS.fV1;
             lb1.Text = "Text File";
             lb1.AutoSize = true;
             Controls.Add(lb1);
-            lb1.Location = new System.Drawing.Point(cBlKH.formFirstLineX, cBlKH.formFirstLineY + gapLine);
+            lb1.Location = new System.Drawing.Point(cISubWS.formFirstLineX, cISubWS.formFirstLineY + gapLine);
 
             lb2 = new MaterialLabel();
-            lb2.Font = cBlKH.fV1;
-            lb2.Text = "Program Name XcustBlanketHeader";
+            lb2.Font = cISubWS.fV1;
+            lb2.Text = "Program Name XcustSubInvMst Web";
             lb2.AutoSize = true;
             Controls.Add(lb2);
-            lb2.Location = new System.Drawing.Point(grd3, cBlKH.formFirstLineY + gapLine);
+            lb2.Location = new System.Drawing.Point(grd3, cISubWS.formFirstLineY + gapLine);
 
             txtFileName = new MaterialSingleLineTextField();
-            txtFileName.Font = cBlKH.fV1;
+            txtFileName.Font = cISubWS.fV1;
             txtFileName.Text = "";
             txtFileName.Size = new System.Drawing.Size(300 - grd1 - 20 - 30, ControlHeight);
             Controls.Add(txtFileName);
-            txtFileName.Location = new System.Drawing.Point(grd1, cBlKH.formFirstLineY + gapLine);
+            txtFileName.Location = new System.Drawing.Point(grd1, cISubWS.formFirstLineY + gapLine);
             txtFileName.Hint = lb1.Text;
             txtFileName.Enter += txtFileName_Enter;
             txtFileName.Leave += txtFileName_Leave;
 
 
             btnRead = new MaterialFlatButton();
-            btnRead.Font = cBlKH.fV1;
+            btnRead.Font = cISubWS.fV1;
             btnRead.Text = "Web Service";
             btnRead.Size = new System.Drawing.Size(30, ControlHeight);
             Controls.Add(btnRead);
@@ -121,13 +119,13 @@ namespace XcustSyncMaster
             pB1 = new MaterialProgressBar();
             Controls.Add(pB1);
             pB1.Size = new System.Drawing.Size(formwidth - 40, pB1.Height);
-            pB1.Location = new System.Drawing.Point(cBlKH.formFirstLineX + 5, line41);
+            pB1.Location = new System.Drawing.Point(cISubWS.formFirstLineX + 5, line41);
 
             lv1 = new MaterialListView();
-            lv1.Font = cBlKH.fV1;
+            lv1.Font = cISubWS.fV1;
             lv1.FullRowSelect = true;
             lv1.Size = new System.Drawing.Size(formwidth - 40, formheight - line3 - 100);
-            lv1.Location = new System.Drawing.Point(cBlKH.formFirstLineX + 5, line42);
+            lv1.Location = new System.Drawing.Point(cISubWS.formFirstLineX + 5, line42);
             lv1.FullRowSelect = true;
             lv1.View = View.Details;
             //lv1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,10 +133,9 @@ namespace XcustSyncMaster
 
             Controls.Add(lv1);
         }
-
         private void btnRead_Click(object sender, EventArgs e)
         {
-            cBlKH.setXcustBlkHTbl(lv1, this, pB1);
+            cISubWS.setXcustSUBTbl(lv1, this, pB1);
         }
         private void txtFileName_Leave(object sender, EventArgs e)
         {
@@ -160,6 +157,6 @@ namespace XcustSyncMaster
 
             return (new ListViewItem(array));
         }
-
+        
     }
 }

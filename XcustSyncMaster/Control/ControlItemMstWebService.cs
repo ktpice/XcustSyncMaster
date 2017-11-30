@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace XcustSyncMaster
 {
-    public class ControlBlanketHeader
+    public class ControlItemMstWebService
     {
         static String fontName = "Microsoft Sans Serif";        //standard
         public String backColor1 = "#1E1E1E";        //standard
@@ -30,36 +30,32 @@ namespace XcustSyncMaster
 
         private String dateStart = "";      //gen log
 
-        public XcustBlanketHeaderTblDB xCBlkHDB;
+        public XcustItemMstTblDB xCItemDB;
 
-        public ControlBlanketHeader(ControlMain cm)
+        public ControlItemMstWebService(ControlMain cm)
         {
             Cm = cm;
             initConfig();
         }
-
         private void initConfig()
         {
             conn = new ConnectDB("kfc_po", Cm.initC);        //standard
-            //vPrPo = new ValidatePrPo();
 
-            xCBlkHDB = new XcustBlanketHeaderTblDB(conn, Cm.initC);
+            xCItemDB = new XcustItemMstTblDB(conn, Cm.initC);
 
             fontSize9 = 9.75f;        //standard
             fontSize8 = 8.25f;        //standard
             fV1B = new Font(fontName, fontSize9, FontStyle.Bold);        //standard
             fV1 = new Font(fontName, fontSize8, FontStyle.Regular);        //standard
         }
-
-
-        public void setXcustBlkHTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
+        public void setXcustITEMTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
         {
             String uri = "", dump = "";
             //HttpWebRequest request = CreateWebRequest();
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustBlkHTbl ", "Web Service", lv1, form1);
+            addListView("setXcustITEMTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -72,48 +68,34 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_BLANKET_AGREEMENT_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_BLANKET_AGREEMENT_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_ITEM_MASTER_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_ITEM_MASTER_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_cre_date_frm</pub:name> " +   //PARAMETER : p_cre_date_frm
+                                    "<pub:name>p_update_from</pub:name> " +
                                     "<pub:values> " +
                                         "<pub:item></pub:item> " +
                                     "</pub:values>" +
                                 "</pub:item>" +
                                 "<pub:item>" +
-                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed>" +
-                                    "<pub:name>p_cre_date_to</pub:name>" +   //PARAMETER : p_cre_date_to
-                                    "<pub:values>" +
-                                        "<pub:item></pub:item>" +
-                                    "</pub:values>" +
-                                "</pub:item> " +
-                                "<pub:item>" +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_update_date_frm</pub:name> " +   //PARAMETER : p_update_date_frm
+                                    "<pub:name>p_update_to</pub:name> " +
                                     "<pub:values> " +
                                         "<pub:item></pub:item> " +
                                     "</pub:values> " +
                                 "</pub:item> " +
-                                "<pub:item> " +
-                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_update_date_to</pub:name> " +  //PARAMETER : p_update_date_to
-                                        "<pub:values> " +
-                                    "<pub:item></pub:item> " +
-                                    "</pub:values> " +
-                                "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>icetech@iceconsulting.co.th</v2:userID> " +  //username
-                                "<v2:password>icetech@2017</v2:password> " +   //password
+                                "<v2:userID>icetech@iceconsulting.co.th</v2:userID> " +
+                                "<v2:password>icetech@2017</v2:password> " +
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
                                 "</soapenv:Envelope> ";
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustPRTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustITEMTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
             byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
@@ -136,13 +118,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustBlKHTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustITEMTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustBlKHTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustITEMTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -164,7 +146,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustBlKHTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustITEMTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);
@@ -180,43 +162,44 @@ namespace XcustSyncMaster
             {
                 if (row == 0) continue;
                 if (data1[row].Length <= 0) continue;
-
-               
-
+                
                 String[] data2 = data1[row].Split(',');
-                XcustBlanketHeaderTbl item = new XcustBlanketHeaderTbl();
-
-                item.POCUMENT_BU = data2[0].Trim().Replace("\"", "");
-                item.BUYER = data2[1].Trim().Trim().Replace("\"", "");
-                item.SUPPLIER_CODE = data2[2].Trim().Trim().Replace("\"", "");
-                item.STATUS = data2[3].Trim().Trim().Replace("\"", "");
-                item.LAST_UPDATE_DATE = data2[4].Trim().Trim().Replace("\"", "");
-                item.CREATION_DATE = data2[5].Trim().Trim().Replace("\"", "");
-                item.AGREEMENT_AMT = data2[6].Trim().Equals("") ? "0" : data2[6].Trim();
-                item.MIN_RELEASE_AMT = data2[7].Trim().Equals("") ? "0" : data2[7].Trim();
-                item.E_MAIL = data2[8].Trim().Trim().Replace("\"", "");
-                item.AGREEMENT_NUMBER = data2[9].Trim().Trim().Replace("\"", "");
-                item.SUPPLIER = data2[10].Trim().Trim().Replace("\"", "");
-                item.SUPPLIER_SITE = data2[11].Trim().Trim().Replace("\"", "");
-                item.COMUNICATION_METHOD = data2[12].Trim().Trim().Replace("\"", "");
-                item.DESCRIPTION = data2[13].Trim().Trim().Replace("\"", "");
-                item.START_DATE = data2[14].Trim().Trim().Replace("\"", "");
-                item.END_DATE = data2[15].Trim().Trim().Replace("\"", "");
-                item.PO_HEADER_ID = data2[16].Trim().Equals("") ? "0" : data2[16].Trim();
-                item.RELEASE_AMT = "0";
-                //item.AGREEMENT_AMT = "50";
-                //item.MIN_RELEASE_AMT = "0";
-                //item.PO_HEADER_ID = "300000001045402";
-
-
-
-                //item.LAST_UPDATE_DATE = xCBlkHDB.xCBlKH.dateTimeYearToDB1(data2[0].Trim());
-                //item.CREATION_DATE = xCBlkHDB.xCBlKH.dateTimeYearToDB1(data2[1].Trim());
-
-
-                xCBlkHDB.insertxCBlKH(item);
+                XcustItemMstTbl item = new XcustItemMstTbl();
+                item.ORGANIZATION_ID = data2[0].Trim();
+                item.INVENTORY_ITEM_ID = data2[1].Trim();
+                item.ITEM_CODE = data2[2].Trim().Replace("\"", "");
+                item.ITEM_NAME = data2[3].Trim().Replace("\"", "");
+                item.DESCRIPTION = data2[4].Trim().Replace("\"", "");
+                item.ATTRIBUTE1 = data2[5].Trim().Replace("\"", "");
+                item.ATTRIBUTE2 = data2[6].Trim().Replace("\"", "");
+                item.ATTRIBUTE3 = data2[7].Trim().Replace("\"", "");
+                item.ATTRIBUTE4 = data2[8].Trim().Replace("\"", "");
+                item.ATTRIBUTE5 = data2[9].Trim().Replace("\"", "");
+                item.ATTRIBUTE6 = data2[10].Trim().Replace("\"", "");
+                item.ATTRIBUTE7 = data2[11].Trim().Replace("\"", "");
+                item.ATTRIBUTE8 = data2[12].Trim().Replace("\"", "");
+                item.ATTRIBUTE9 = data2[13].Trim().Replace("\"", "");
+                item.ATTRIBUTE10 = data2[14].Trim().Replace("\"", "");
+                item.ATTRIBUTE11 = data2[15].Trim().Replace("\"", "");
+                item.ATTRIBUTE12 = data2[16].Trim().Replace("\"", "");
+                item.ATTRIBUTE13 = data2[17].Trim().Replace("\"", "");
+                item.ATTRIBUTE14 = data2[18].Trim().Replace("\"", "");
+                item.ATTRIBUTE15 = data2[19].Trim().Replace("\"", "");
+                item.ITEM_STATUS = data2[20].Trim().Replace("\"", "");
+                item.ITEM_CLASS_NAME = data2[21].Trim().Replace("\"", "");
+                item.ITEM_CLASS_CODE = data2[22].Trim().Replace("\"", "");
+                item.ITEM_TYPE = data2[23].Trim().Replace("\"", "");
+                item.PRIMARY_UOM = data2[24].Trim().Replace("\"", "");
+                item.ITEM_CATEGORY_NAME = data2[25].Trim().Replace("\"", "");
+                item.ITEM_CATEGORY_CODE = data2[26].Trim().Replace("\"", "");
+                item.CREATION_DATE = data2[27].Trim().Replace("\"", "");
+                item.LAST_UPDATE_DATE = data2[28].Trim().Replace("\"", "");
+                item.LOT_CONTROL_CODE = data2[29].Trim().Replace("\"", "");
+                item.SERIAL_NUMBER_CONTROL_CODE = data2[30].Trim().Replace("\"", "");
+                item.ITEM_REFERENCE1 = data2[31].Trim().Replace("\"", "");
+                //MessageBox.Show("111"+item.CREATION_DATE);
+                xCItemDB.insertxCItemMst(item);
             }
-
             Console.WriteLine(decodedString);
         }
 
@@ -225,7 +208,6 @@ namespace XcustSyncMaster
             lv1.Items.Add(AddToList((lv1.Items.Count + 1), col1, col2));
             form1.Refresh();
         }
-
         private ListViewItem AddToList(int col1, string col2, string col3)
         {
             //int i = 0;
@@ -238,6 +220,5 @@ namespace XcustSyncMaster
 
             return (new ListViewItem(array));
         }
-
     }
 }

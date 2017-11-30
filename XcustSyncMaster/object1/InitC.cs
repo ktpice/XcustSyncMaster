@@ -37,6 +37,8 @@ namespace XcustSyncMaster
         public String AutoValueSet = "";
         public String AutoRunPO002 = "";
         public String AutoRunPO006 = "";
+        public String AutoItemMaster = "";  //kts
+        public String AutoSubInvMaster = "";  //kts
 
         public String PathMaster = "";
 

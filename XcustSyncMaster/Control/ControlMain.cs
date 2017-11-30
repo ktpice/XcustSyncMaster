@@ -25,6 +25,7 @@ namespace XcustSyncMaster
         public string[] args;
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
         public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustGLEntitywebservice_run = ""; //kwl 20171129
+        public String xcustTaxCodewebservice_run = "", xcustSupplierwebservice_run = "", xcustSupplierSitewebservice_run = ""; //kwl 20171130
 
         public ControlMain()
         {
@@ -51,6 +52,9 @@ namespace XcustSyncMaster
                     xcustGlPwebservice_run = aaa[0].Equals("xcustGlPwebservice_run") ? aaa[1] : ""; //kwl 20171129
                     xcustAPSourcewebservice_run = aaa[0].Equals("xcustAPSourcewebservice_run") ? aaa[1] : ""; //kwl 20171129
                     xcustGLEntitywebservice_run = aaa[0].Equals("xcustGLEntitywebservice_run") ? aaa[1] : ""; //kwl 20171129
+                    xcustTaxCodewebservice_run = aaa[0].Equals("xcustTaxCodewebservice_run") ? aaa[1] : ""; //kwl 20171130
+                    xcustTaxCodewebservice_run = aaa[0].Equals("xcustSupplierwebservice_run") ? aaa[1] : ""; //kwl 20171130
+                    xcustTaxCodewebservice_run = aaa[0].Equals("xcustSupplierSitewebservice_run") ? aaa[1] : ""; //kwl 20171130
 
                 }
             }
@@ -417,6 +421,9 @@ namespace XcustSyncMaster
             initC.AutoGlPeriod = iniFile.Read("AutoGlPeriod");  //kwl 20171129
             initC.AutoApSource = iniFile.Read("AutoApSource");  //kwl 20171129
             initC.AutoGlEntity = iniFile.Read("AutoGlEntity");  //kwl 20171129
+            initC.AutoGlEntity = iniFile.Read("AutoTaxCode");  //kwl 20171130
+            initC.AutoGlEntity = iniFile.Read("AutoSupplier");  //kwl 20171130
+            initC.AutoGlEntity = iniFile.Read("AutoSupplierSite");  //kwl 20171130
 
             initC.PO005PathArchive = iniFile.Read("PO005PathArchive").Trim();    //bit
             initC.PO005PathError = iniFile.Read("PO005PathError").Trim();

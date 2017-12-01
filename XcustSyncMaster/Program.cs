@@ -53,10 +53,10 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustApSourceWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm));
                 //Application.Run(new XCustTaxCodeWebService(Cm));
-                //Application.Run(new XCustSupplierSiteWebService(Cm));
+                Application.Run(new XCustSupplierSiteWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
                 //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
-                Application.Run(new XCustUomMstWebService(Cm));  //kts
+                //Application.Run(new XCustUomMstWebService(Cm));  //kts
             }
 
 

@@ -49,14 +49,17 @@ namespace XcustSyncMaster
             else
             {
                 //Application.Run(new XCustPoRWebService(Cm));
-                //Application.Run(new XCustGlPeriodWebService(Cm));
+                Application.Run(new XCustGlPeriodWebService(Cm));
                 //Application.Run(new XCustApSourceWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm));
                 //Application.Run(new XCustTaxCodeWebService(Cm));
-                Application.Run(new XCustSupplierSiteWebService(Cm));
+                //Application.Run(new XCustSupplierSiteWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
                 //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
                 //Application.Run(new XCustUomMstWebService(Cm));  //kts
+                //Application.Run(new XCustGlCodeCombinationWebService(Cm));
+                //Application.Run(new XCustLocationsWebService(Cm));
+
             }
 
 

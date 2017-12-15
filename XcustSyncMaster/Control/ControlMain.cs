@@ -26,6 +26,7 @@ namespace XcustSyncMaster
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
         public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustGLEntitywebservice_run = ""; //kwl 20171129
         public String xcustTaxCodewebservice_run = "", xcustSupplierwebservice_run = "", xcustSupplierSitewebservice_run = ""; //kwl 20171130
+        public String xcustGlCodeCombinationwebservice_run = "", xcustLocationwebservice_run = ""; //kwl 20171206
         public String xcustblanketheader_run = ""; //ktp 20171130
         public String xcustitemmstwebservice_run = ""; //kts
         public String xcustsubinvmstwebservice_run = "";  //kts

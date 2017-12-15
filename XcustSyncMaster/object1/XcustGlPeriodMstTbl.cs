@@ -17,5 +17,8 @@ namespace XcustSyncMaster
         public String PERIOD_YEAR = "";
         public String EFFECTIVE_PERIOD_NUM = "";
         public String PERIOD_NUM = "";
+        public String STATUS = "";
+        public String APPLICATION_ID = "";
+
     }
 }

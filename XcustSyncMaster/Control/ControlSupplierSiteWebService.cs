@@ -195,6 +195,13 @@ namespace XcustSyncMaster
                 item.ATTRIBUTE13 = data2[27].Trim().Replace("\"", "");
                 item.ATTRIBUTE14 = data2[28].Trim().Replace("\"", "");
                 item.ATTRIBUTE15 = data2[29].Trim().Replace("\"", "");
+                item.PAY_GROUP_LOOKUP_CODE = data2[31].Trim().Replace("\"", "");
+                item.TERMS_ID = data2[32].Trim().Equals("") ? "0" : data2[32].Trim();
+                item.DEFAULT_PAYMENT_METHOD = data2[33].Trim().Replace("\"", "");
+                item.LIABILITY_ACCOUNT_CCID = data2[34].Trim().Equals("") ? "0" : data2[34].Trim();
+                item.DEFAULT_WHT_CODE = data2[35].Trim().Replace("\"", "");
+                item.TERM_NAME = data2[36].Trim().Replace("\"", "");
+                item.TAX_CLASSIFICATION_CODE = data2[37].Trim().Replace("\"", "");
 
                 //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
 

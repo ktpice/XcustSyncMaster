@@ -171,12 +171,13 @@ namespace XcustSyncMaster
                 item.SUPPLIER_REG_ID = data2[2].Trim();
                 item.VENDOR_ID = data2[3].Trim().Replace("\"", "");
                 item.SUPPLIER_NUMBER = data2[4].Trim().Replace("\"", "");
-                item.SUPPLIER_NAME = data2[5].Trim().Replace("\"", "");
+                item.SUPPLIER_NAME = data2[5].Trim().Replace("\"", "").Replace("||", ",");
                 item.ATTRIBUTE1 = data2[8].Trim().Replace("\"", "");
                 item.ATTRIBUTE2 = data2[9].Trim().Replace("\"", "");
                 item.ATTRIBUTE3 = data2[10].Trim().Replace("\"", "");
                 item.ATTRIBUTE4 = data2[11].Trim().Replace("\"", "");
                 item.ATTRIBUTE5 = data2[12].Trim().Replace("\"", "");
+                item.TAX_CLASSIFICATION_CODE = data2[13].Trim().Replace("\"", "");
 
                 //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
 

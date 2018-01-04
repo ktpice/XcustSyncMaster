@@ -12,8 +12,9 @@ using System.Xml.Linq;
 
 namespace XcustSyncMaster
 {
-    public class ControlBlanketHeader
+    class ControlGlLedger
     {
+        
         static String fontName = "Microsoft Sans Serif";        //standard
         public String backColor1 = "#1E1E1E";        //standard
         public String backColor2 = "#2D2D30";        //standard
@@ -30,9 +31,9 @@ namespace XcustSyncMaster
 
         private String dateStart = "";      //gen log
 
-        public XcustBlanketHeaderTblDB xCBlkHDB;
+        public XcustGlLedgerTblDB xCGLGDB;
 
-        public ControlBlanketHeader(ControlMain cm)
+        public ControlGlLedger(ControlMain cm)
         {
             Cm = cm;
             initConfig();
@@ -43,7 +44,7 @@ namespace XcustSyncMaster
             conn = new ConnectDB("kfc_po", Cm.initC);        //standard
             //vPrPo = new ValidatePrPo();
 
-            xCBlkHDB = new XcustBlanketHeaderTblDB(conn, Cm.initC);
+            xCGLGDB = new XcustGlLedgerTblDB(conn, Cm.initC);
 
             fontSize9 = 9.75f;        //standard
             fontSize8 = 8.25f;        //standard
@@ -51,15 +52,14 @@ namespace XcustSyncMaster
             fV1 = new Font(fontName, fontSize8, FontStyle.Regular);        //standard
         }
 
-
-        public void setXcustBlkHTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
+        public void setXcustGlLedgerTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
         {
             String uri = "", dump = "";
             //HttpWebRequest request = CreateWebRequest();
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustBlkHTbl ", "Web Service", lv1, form1);
+            addListView("setXcustGlLedgerTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -72,8 +72,8 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_BLANKET_AGREEMENT_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_BLANKET_AGREEMENT_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_GL_LEDGER_MST_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_GL_LEDGER_MST_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
@@ -105,17 +105,17 @@ namespace XcustSyncMaster
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>icetech@iceconsulting.co.th</v2:userID> " +  //username
-                                "<v2:password>icetech@2017</v2:password> " +   //password
+                                "<v2:userID>"+ Cm.initC.usercloud + "</v2:userID> " +  //username
+                                "<v2:password>"+ Cm.initC.passcloud + "</v2:password> " +   //password
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
                                 "</soapenv:Envelope> ";
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustPRTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustGlLedgerTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
-            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
+            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(Cm.initC.usercloud + ":" + Cm.initC.passcloud);
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
 
             // Create HttpWebRequest connection to the service
@@ -136,13 +136,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustBlKHTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustGlLedgerTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustBlKHTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustGlLedgerTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -164,7 +164,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustBlKHTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustGlLedgerTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);
@@ -181,36 +181,31 @@ namespace XcustSyncMaster
                 if (row == 0) continue;
                 if (data1[row].Length <= 0) continue;
 
-               
+
 
                 String[] data2 = data1[row].Split(',');
-                XcustBlanketHeaderTbl item = new XcustBlanketHeaderTbl();
+                XcustGlLedgerTbl item = new XcustGlLedgerTbl();
 
-                item.POCUMENT_BU = data2[0].Trim().Replace("\"", "");
-                item.BUYER = data2[1].Trim().Trim().Replace("\"", "");
-                item.SUPPLIER_CODE = data2[2].Trim().Trim().Replace("\"", "");
-                item.STATUS = data2[3].Trim().Trim().Replace("\"", "");
-                item.LAST_UPDATE_DATE = data2[4].Trim().Trim().Replace("\"", "");
-                item.CREATION_DATE = data2[5].Trim().Trim().Replace("\"", "");
-                item.AGREEMENT_AMT = data2[6].Trim().Equals("") ? "0" : data2[6].Trim();
-                item.MIN_RELEASE_AMT = data2[7].Trim().Equals("") ? "0" : data2[7].Trim();
-                item.E_MAIL = data2[8].Trim().Trim().Replace("\"", "");
-                item.AGREEMENT_NUMBER = data2[9].Trim().Trim().Replace("\"", "");
-                item.SUPPLIER = data2[10].Trim().Trim().Replace("\"", "");
-                item.SUPPLIER_SITE = data2[11].Trim().Trim().Replace("\"", "");
-                item.COMUNICATION_METHOD = data2[12].Trim().Trim().Replace("\"", "");
-                item.DESCRIPTION = data2[13].Trim().Trim().Replace("\"", "");
-                item.START_DATE = data2[14].Trim().Trim().Replace("\"", "");
-                item.END_DATE = data2[15].Trim().Trim().Replace("\"", "");
-                item.PO_HEADER_ID = data2[16].Trim().Equals("") ? "0" : data2[16].Trim();
-                item.RELEASE_AMT = "0";
+                item.LEDGER_ID = data2[0].Trim().Equals("") ? "0" : data2[0].Trim();
+                item.OBJECT_VERSION_NUMBER = data2[1].Trim().Equals("") ? "0" : data2[1].Trim();
+                item.NAME = data2[2].Trim().Replace("\"", "");
+                item.SHORT_NAME = data2[3].Trim().Replace("\"", "");
+                item.DESCRIPTION = data2[4].Trim().Replace("\"", "");
+                item.LEDGER_CATEGORY_CODE = data2[5].Trim().Replace("\"", "");
+                item.ALC_LEDGER_TYPE_CODE = data2[6].Trim().Replace("\"", "");
+                item.OBJECT_TYPE_CODE = data2[7].Trim().Replace("\"", "");
+                item.LE_LEDGER_TYPE_CODE = data2[8].Trim().Replace("\"", "");
+                item.COMPLETION_STATUS_CODE = data2[9].Trim().Replace("\"", "");
+                item.CHART_OF_ACCOUNTS_ID = data2[10].Trim().Equals("") ? "0" : data2[10].Trim();
+                item.PERIOD_SET_NAME = data2[11].Trim().Replace("\"", "");  
+                item.CURRENCY_CODE = data2[12].Trim().Replace("\"", "");  
+                item.ENABLE_BUDGETARY_CONTROL_FLAG = data2[13].Trim().Replace("\"", "");  
+                item.ACCESS_SET_ID = data2[14].Trim().Equals("") ? "0" : data2[14].Trim();  
+                
 
+                xCGLGDB.insertxCGLG(item);
 
-                //item.LAST_UPDATE_DATE = xCBlkHDB.xCBlKH.dateTimeYearToDB1(data2[0].Trim());
-                //item.CREATION_DATE = xCBlkHDB.xCBlKH.dateTimeYearToDB1(data2[1].Trim());
-
-
-                xCBlkHDB.insertxCBlKH(item);
+                //addListView("insert XCUST_BLANKET_AGREEMENT_LINES_TBL", "Web Service", lv1, form1);
             }
 
             Console.WriteLine(decodedString);
@@ -234,6 +229,5 @@ namespace XcustSyncMaster
 
             return (new ListViewItem(array));
         }
-
     }
 }

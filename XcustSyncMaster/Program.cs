@@ -51,7 +51,12 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustTaxCodeWebService(Cm));
                 //Application.Run(new XCustSupplierSiteWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
-                Application.Run(new XCustSubInvMstWebService(Cm));  //kts
+                //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
+
+                //Application.Run(new XcustBlanketHeader(Cm));
+
+                //Application.Run(new XCustBlanketLine(Cm));
+                Application.Run(new XCustGlLedger(Cm));
             }
 
 

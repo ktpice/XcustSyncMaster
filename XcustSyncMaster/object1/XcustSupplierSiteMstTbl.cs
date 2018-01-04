@@ -37,6 +37,13 @@ namespace XcustSyncMaster
         public String ATTRIBUTE13 = "";
         public String ATTRIBUTE14 = "";
         public String ATTRIBUTE15 = "";
+        public String PAY_GROUP_LOOKUP_CODE = "";
+        public String TERMS_ID = "";
+        public String DEFAULT_PAYMENT_METHOD = "";
+        public String LIABILITY_ACCOUNT_CCID = "";
+        public String DEFAULT_WHT_CODE = "";
+        public String TERM_NAME = "";
+        public String TAX_CLASSIFICATION_CODE = "";
 
     }
 }

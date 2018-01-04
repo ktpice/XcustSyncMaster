@@ -54,9 +54,17 @@
     <Compile Include="Control\ColorScheme.cs" />
     <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlApSourceWebService.cs" />
+
     <Compile Include="Control\ControlBlanketLine.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
     <Compile Include="Control\ControlGlLedger.cs" />
+
+    <Compile Include="Control\ControlLocationsWebService.cs" />
+    <Compile Include="Control\ControlGlEntityWebService.cs" />
+    <Compile Include="Control\ControlGlCodeCombinationWebService.cs" />
+    <Compile Include="Control\ControlUomMstWebService.cs" />
+    <Compile Include="Control\ControlSupplierSiteWebService.cs" />
+
     <Compile Include="Control\ControlSupplierWebService.cs" />
     <Compile Include="Control\ControlTaxCodeWebService.cs" />
     <Compile Include="Control\ControlItemMstWebService.cs" />
@@ -120,13 +128,28 @@
     <Compile Include="gui\XCustApSourceWebService.cs">
       <SubType>Form</SubType>
     </Compile>
+
     <Compile Include="gui\XCustBlanketLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    
+    <Compile Include="gui\XCustLocationsWebService.cs">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustGlEntityWebService.cs">
       <SubType>Form</SubType>
     </Compile>
+
     <Compile Include="gui\XCustGlLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    
+    <Compile Include="gui\XCustGlCodeCombinationWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\XCustSupplierSiteWebService.cs">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustSupplierWebService.cs">
@@ -147,15 +170,24 @@
     <Compile Include="gui\XCustSubInvMstWebService.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\XCustUomMstWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\XcustValueSet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\XcustBlanketHeaderTblDB.cs" />
     <Compile Include="objdb\XcustApSourceMstTblDB.cs" />
+
     <Compile Include="objdb\XcustBlanketLineTblDB.cs" />
     <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustGlLedgerTblDB.cs" />
+
+    <Compile Include="objdb\XcustLocationsMstTblDB.cs" />
+    <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
+    <Compile Include="objdb\XcustGlCodeCombinationMstTblDB.cs" />
+
     <Compile Include="objdb\XcustGlPeriodMstTblDB.cs" />
     <Compile Include="objdb\XcustItemMstTblDB.cs" />
     <Compile Include="objdb\XcustPoReceiptTblDB.cs" />
@@ -163,6 +195,7 @@
     <Compile Include="objdb\XcustSupplierMstTblDB.cs" />
     <Compile Include="objdb\XcustTaxCodeMstTblDB.cs" />
     <Compile Include="objdb\XcustSubInvMstTblDB.cs" />
+    <Compile Include="objdb\XcustUomMstTblDB.cs" />
     <Compile Include="objdb\XcustValueSetMstTblDB.cs" />
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitC.cs" />
@@ -170,9 +203,15 @@
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\XcustBlanketHeaderTbl.cs" />
     <Compile Include="object1\XcustApSourceMstTbl.cs" />
+
     <Compile Include="object1\XcustBlanketLineTbl.cs" />
     <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustGlLedgerTbl.cs" />
+
+    <Compile Include="object1\XcustLocationsMstTbl.cs" />
+    <Compile Include="object1\XcustGlEntityMstTbl.cs" />
+    <Compile Include="object1\XcustGlCodeCombinationMstTbl.cs" />
+
     <Compile Include="object1\XcustGlPeriodMstTbl.cs" />
     <Compile Include="object1\XcustItemMstTbl.cs" />
     <Compile Include="object1\XcustPoReceiptTbl.cs" />
@@ -180,6 +219,7 @@
     <Compile Include="object1\XcustSupplierMstTbl.cs" />
     <Compile Include="object1\XcustTaxCodeMstTbl.cs" />
     <Compile Include="object1\XcustSubInvMstTbl.cs" />
+    <Compile Include="object1\XcustUomMstTbl.cs" />
     <Compile Include="object1\XcustValueSetMstTbl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

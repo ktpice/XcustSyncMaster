@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace XcustSyncMaster
 {
-    public class ControlGlPeriodWebService
+    public class ControlUomMstWebService
     {
         static String fontName = "Microsoft Sans Serif";        //standard
         public String backColor1 = "#1E1E1E";        //standard
@@ -30,9 +30,9 @@ namespace XcustSyncMaster
 
         private String dateStart = "";      //gen log
 
-        public XcustGlPeriodMstTblDB xCGlPDB;
+        public XcustUomMstTblDB xCIUomDB;
 
-        public ControlGlPeriodWebService(ControlMain cm)
+        public ControlUomMstWebService(ControlMain cm)
         {
             Cm = cm;
             initConfig();
@@ -40,23 +40,22 @@ namespace XcustSyncMaster
         private void initConfig()
         {
             conn = new ConnectDB("kfc_po", Cm.initC);        //standard
-            //vPrPo = new ValidatePrPo();
 
-            xCGlPDB = new XcustGlPeriodMstTblDB(conn, Cm.initC);
+            xCIUomDB = new XcustUomMstTblDB(conn, Cm.initC);
 
             fontSize9 = 9.75f;        //standard
             fontSize8 = 8.25f;        //standard
             fV1B = new Font(fontName, fontSize9, FontStyle.Bold);        //standard
             fV1 = new Font(fontName, fontSize8, FontStyle.Regular);        //standard
         }
-        public void setXcustGlPTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
+        public void setXcustUOMTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
         {
             String uri = "", dump = "";
             //HttpWebRequest request = CreateWebRequest();
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustGlPeriodMstTbl ", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -69,22 +68,22 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_GL_PERIOD_MST_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_GL_PERIOD_MST_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_MAS_UOM_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_MAS_UOM_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
-                                "<pub:item>" +
-                                "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                "<pub:name>p_update_from</pub:name> " +
-                                "<pub:values> " +
-                                "<pub:item></pub:item> " +
-                                "</pub:values> " +
-                                "</pub:item> " +
                                 "<pub:item> " +
-                                "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                "<pub:name>p_update_to</pub:name> " +
-                                "<pub:values> " +
-                                "<pub:item></pub:item> " +
-                                "</pub:values> " +
+                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
+                                    "<pub:name>p_update_from</pub:name> " +
+                                    "<pub:values> " +
+                                        "<pub:item></pub:item> " +
+                                    "</pub:values>" +
+                                "</pub:item>" +
+                                "<pub:item>" +
+                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
+                                    "<pub:name>p_update_to</pub:name> " +
+                                    "<pub:values> " +
+                                        "<pub:item></pub:item> " +
+                                    "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
@@ -96,7 +95,7 @@ namespace XcustSyncMaster
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustGlPeriodMstTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
             byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
@@ -119,13 +118,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustGlPeriodMstTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustGlPeriodMstTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustUOMTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -147,7 +146,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustGlPeriodMstTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustUOMTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);
@@ -163,30 +162,23 @@ namespace XcustSyncMaster
             {
                 if (row == 0) continue;
                 if (data1[row].Length <= 0) continue;
-
+                
                 String[] data2 = data1[row].Split(',');
-                XcustGlPeriodMstTbl item = new XcustGlPeriodMstTbl();
-                //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
-                //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.LEDGER_ID = data2[2].Trim();
-                item.PERIOD_NAME = data2[3].Trim();
-                item.START_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[4].Trim());
-                item.END_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[5].Trim());
-                item.PERIOD_YEAR = data2[6].Trim().Equals("") ? "0" : data2[6].Trim();
-                item.EFFECTIVE_PERIOD_NUM = data2[7].Trim().Equals("") ? "0" : data2[7].Trim();
-                item.PERIOD_NUM = data2[8].Trim().Equals("") ? "0" : data2[8].Trim();
-                item.STATUS = data2[9].Trim().Replace("\"", "");
-                item.APPLICATION_ID = data2[10].Trim();
-                item.CREATION_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[11].Trim());
-                item.LAST_UPDATE_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[12].Trim());
-
-
-
-                //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
-
-                xCGlPDB.insertxCGlP(item);
+                XcustUomMstTbl uom = new XcustUomMstTbl();
+                uom.UNIT_OF_MEASURE_ID = data2[0].Trim().ToString();
+                uom.UOM_CODE = data2[1].Trim().ToString();
+                uom.DISABLE_DATE = data2[2].Trim().Replace("\"", "");
+                uom.LAST_UPDATE_DATE = data2[3].Trim().Replace("\"", "");
+                uom.CREATION_DATE = data2[4].Trim().Replace("\"", "");
+                uom.LAST_UPDATE_DATE = data2[5].Trim().Replace("\"", "");
+                uom.CREATION_DATE = data2[6].Trim().Replace("\"", "");
+                uom.attribute1 = data2[7].Trim().Replace("\"", "");
+                uom.uom_name = data2[8].Trim().Replace("\"", "");
+                uom.uom_description = data2[9].Trim().Replace("\"", "");
+                //MessageBox.Show("111"+item.CREATION_DATE);
+                xCIUomDB.insertxCUomMst(uom); 
+      
             }
-
             Console.WriteLine(decodedString);
         }
 

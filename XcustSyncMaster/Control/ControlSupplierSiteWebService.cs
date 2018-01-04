@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace XcustSyncMaster
 {
-    public class ControlGlPeriodWebService
+    public class ControlSupplierSiteWebService
     {
         static String fontName = "Microsoft Sans Serif";        //standard
         public String backColor1 = "#1E1E1E";        //standard
@@ -30,9 +30,9 @@ namespace XcustSyncMaster
 
         private String dateStart = "";      //gen log
 
-        public XcustGlPeriodMstTblDB xCGlPDB;
+        public XcustSupplierSiteMstTblDB xCSupDB;
 
-        public ControlGlPeriodWebService(ControlMain cm)
+        public ControlSupplierSiteWebService(ControlMain cm)
         {
             Cm = cm;
             initConfig();
@@ -42,21 +42,21 @@ namespace XcustSyncMaster
             conn = new ConnectDB("kfc_po", Cm.initC);        //standard
             //vPrPo = new ValidatePrPo();
 
-            xCGlPDB = new XcustGlPeriodMstTblDB(conn, Cm.initC);
+            xCSupDB = new XcustSupplierSiteMstTblDB(conn, Cm.initC);
 
             fontSize9 = 9.75f;        //standard
             fontSize8 = 8.25f;        //standard
             fV1B = new Font(fontName, fontSize9, FontStyle.Bold);        //standard
             fV1 = new Font(fontName, fontSize8, FontStyle.Regular);        //standard
         }
-        public void setXcustGlPTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
+        public void setXcustSupTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
         {
             String uri = "", dump = "";
             //HttpWebRequest request = CreateWebRequest();
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustGlPeriodMstTbl ", "Web Service", lv1, form1);
+            addListView("setXcustSupplierSiteMstTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -69,8 +69,8 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_GL_PERIOD_MST_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_GL_PERIOD_MST_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_SUPPLIER_SITE_MST_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_SUPPLIER_SITE_MST_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item>" +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
@@ -96,7 +96,7 @@ namespace XcustSyncMaster
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustGlPeriodMstTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustSupplierSiteMstTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
             byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
@@ -119,13 +119,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustGlPeriodMstTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustSupplierSiteMstTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustGlPeriodMstTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustSupplierSiteMstTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -147,7 +147,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustGlPeriodMstTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustSupplierSiteMstTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);
@@ -165,26 +165,47 @@ namespace XcustSyncMaster
                 if (data1[row].Length <= 0) continue;
 
                 String[] data2 = data1[row].Split(',');
-                XcustGlPeriodMstTbl item = new XcustGlPeriodMstTbl();
-                //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
-                //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.LEDGER_ID = data2[2].Trim();
-                item.PERIOD_NAME = data2[3].Trim();
-                item.START_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[4].Trim());
-                item.END_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[5].Trim());
-                item.PERIOD_YEAR = data2[6].Trim().Equals("") ? "0" : data2[6].Trim();
-                item.EFFECTIVE_PERIOD_NUM = data2[7].Trim().Equals("") ? "0" : data2[7].Trim();
-                item.PERIOD_NUM = data2[8].Trim().Equals("") ? "0" : data2[8].Trim();
-                item.STATUS = data2[9].Trim().Replace("\"", "");
-                item.APPLICATION_ID = data2[10].Trim();
-                item.CREATION_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[11].Trim());
-                item.LAST_UPDATE_DATE = xCGlPDB.xCGlP.dateTimeYearToDB1(data2[12].Trim());
+                XcustSupplierSiteMstTbl item = new XcustSupplierSiteMstTbl();
+                item.LAST_UPDATE_DATE = xCSupDB.xCSup.dateTimeYearToDB1(data2[13].Trim());
+                item.CREATION_DATE = xCSupDB.xCSup.dateTimeYearToDB1(data2[14].Trim());
+                item.VENDOR_SITE_SPK_ID = data2[2].Trim();
+                item.VENDOR_SITE_ID = data2[3].Trim();
+                item.VENDOR_ID = data2[4].Trim();
+                item.LOCATION_ID = data2[5].Trim();
+                item.VENDOR_SITE_CODE = data2[6].Trim().Replace("\"", "");
+                item.PURCHASING_SITE_FLAG = data2[7].Trim();
+                item.RFQ_ONLY_SITE_FLAG = data2[8].Trim();
+                item.PAY_SITE_FLAG = data2[9].Trim();
+                item.MATCH_OPTION = data2[10].Trim().Replace("\"", "");
+                item.SUPPLIER_NOTIF_METHOD = data2[11].Trim().Replace("\"", "");
+                item.EMAIL_ADDRESS = data2[12].Trim().Replace("\"", "");
 
-
+                item.ATTRIBUTE1 = data2[15].Trim().Replace("\"", "");
+                item.ATTRIBUTE2 = data2[16].Trim().Replace("\"", "");
+                item.ATTRIBUTE3 = data2[17].Trim().Replace("\"", "");
+                item.ATTRIBUTE4 = data2[18].Trim().Replace("\"", "");
+                item.ATTRIBUTE5 = data2[19].Trim().Replace("\"", "");
+                item.ATTRIBUTE6 = data2[20].Trim().Replace("\"", "");
+                item.ATTRIBUTE7 = data2[21].Trim().Replace("\"", "");
+                item.ATTRIBUTE8 = data2[22].Trim().Replace("\"", "");
+                item.ATTRIBUTE9 = data2[23].Trim().Replace("\"", "");
+                item.ATTRIBUTE10 = data2[24].Trim().Replace("\"", "");
+                item.ATTRIBUTE11 = data2[25].Trim().Replace("\"", "");
+                item.ATTRIBUTE12 = data2[26].Trim().Replace("\"", "");
+                item.ATTRIBUTE13 = data2[27].Trim().Replace("\"", "");
+                item.ATTRIBUTE14 = data2[28].Trim().Replace("\"", "");
+                item.ATTRIBUTE15 = data2[29].Trim().Replace("\"", "");
+                item.PAY_GROUP_LOOKUP_CODE = data2[31].Trim().Replace("\"", "");
+                item.TERMS_ID = data2[32].Trim().Equals("") ? "0" : data2[32].Trim();
+                item.DEFAULT_PAYMENT_METHOD = data2[33].Trim().Replace("\"", "");
+                item.LIABILITY_ACCOUNT_CCID = data2[34].Trim().Equals("") ? "0" : data2[34].Trim();
+                item.DEFAULT_WHT_CODE = data2[35].Trim().Replace("\"", "");
+                item.TERM_NAME = data2[36].Trim().Replace("\"", "");
+                item.TAX_CLASSIFICATION_CODE = data2[37].Trim().Replace("\"", "");
 
                 //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
 
-                xCGlPDB.insertxCGlP(item);
+                xCSupDB.insertxCSup(item);
             }
 
             Console.WriteLine(decodedString);

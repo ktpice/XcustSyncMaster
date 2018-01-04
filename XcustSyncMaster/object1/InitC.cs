@@ -14,6 +14,7 @@ namespace XcustSyncMaster
         public String AutoValueSet = "";
         public String AutoItemMaster = "";  //kts
         public String AutoSubInvMaster = "";  //kts
+        public String AutoUomMaster = "";  //kts
 
         public String AutoGlPeriod = ""; //kwl 20171129
         public String AutoApSource = ""; //kwl 20171129   

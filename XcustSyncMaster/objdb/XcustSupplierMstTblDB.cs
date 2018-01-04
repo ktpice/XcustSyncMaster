@@ -36,9 +36,10 @@ namespace XcustSyncMaster
             xCSup.ATTRIBUTE3 = "ATTRIBUTE3";
             xCSup.ATTRIBUTE4 = "ATTRIBUTE4";
             xCSup.ATTRIBUTE5 = "ATTRIBUTE5";
+            xCSup.TAX_CLASSIFICATION_CODE = "TAX_CLASSIFICATION_CODE";
 
 
-        xCSup.table = "XCUST_SUPPLIER_MST_TBL";
+            xCSup.table = "XCUST_SUPPLIER_MST_TBL";
         }
         public Boolean selectDupPk(String SupRegId, String VendorId)
         {
@@ -90,6 +91,7 @@ namespace XcustSyncMaster
                                        xCSup.ATTRIBUTE3 + "," +
                                        xCSup.ATTRIBUTE4 + "," +
                                        xCSup.ATTRIBUTE5 + "," +
+                                       xCSup.TAX_CLASSIFICATION_CODE + "," +
                                        xCSup.LAST_UPDATE_DATE + "," +
                                        xCSup.CREATION_DATE +
                     ") " +
@@ -103,6 +105,7 @@ namespace XcustSyncMaster
                                  p.ATTRIBUTE3 + "','" +
                                  p.ATTRIBUTE4 + "','" +
                                  p.ATTRIBUTE5 + "','" +
+                                 p.TAX_CLASSIFICATION_CODE + "','" +
                                  p.LAST_UPDATE_DATE + "','" +
                                  p.CREATION_DATE + "'" +
                     ") ";

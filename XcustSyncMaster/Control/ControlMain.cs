@@ -26,11 +26,16 @@ namespace XcustSyncMaster
         public String xcustpowebservice_run="", xcustprwebservice_run = "";
         public String xcustGlPwebservice_run = "", xcustAPSourcewebservice_run = "", xcustGLEntitywebservice_run = ""; //kwl 20171129
         public String xcustTaxCodewebservice_run = "", xcustSupplierwebservice_run = "", xcustSupplierSitewebservice_run = ""; //kwl 20171130
+        public String xcustGlCodeCombinationwebservice_run = "", xcustLocationwebservice_run = ""; //kwl 20171206
         public String xcustblanketheader_run = ""; //ktp 20171130
         public String xcustitemmstwebservice_run = ""; //kts
         public String xcustsubinvmstwebservice_run = "";  //kts
+
         public String xcustblanketline_run = ""; //ktp 20171130
         public String xcustGlLedger_run = ""; //ktp 20180104
+
+        public String xcustuommstwebservice_run = "";  //kts
+
 
         public ControlMain()
         {
@@ -62,6 +67,7 @@ namespace XcustSyncMaster
                     xcustTaxCodewebservice_run = aaa[0].Equals("xcustSupplierSitewebservice_run") ? aaa[1] : ""; //kwl 20171130
                     xcustitemmstwebservice_run = aaa[0].Equals("xcustitemmstwebservice_run") ? aaa[1] : ""; //kts
                     xcustitemmstwebservice_run = aaa[0].Equals("xcustsubinvmstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustuommstwebservice_run = aaa[0].Equals("xcustuommstwebservice_run") ? aaa[1] : ""; //kts
 
                 }
             }
@@ -137,6 +143,7 @@ namespace XcustSyncMaster
 
             initC.AutoItemMaster = iniFile.Read("AutoItemMaster"); //kts
             initC.AutoSubInvMaster = iniFile.Read("AutoSubInvMaster"); //kts
+            initC.AutoUomMaster = iniFile.Read("AutoUomMaster"); //kts
 
             initC.AutoGlPeriod = iniFile.Read("AutoGlPeriod");  //kwl 20171129
             initC.AutoApSource = iniFile.Read("AutoApSource");  //kwl 20171129

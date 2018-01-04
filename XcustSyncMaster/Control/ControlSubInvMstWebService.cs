@@ -177,6 +177,7 @@ namespace XcustSyncMaster
                 subinv.attribute3 = data2[9].Trim().Replace("\"", "");
                 //MessageBox.Show("111"+item.CREATION_DATE);
                 xCISubDB.insertxCSubInvMst(subinv); 
+      
             }
             Console.WriteLine(decodedString);
         }

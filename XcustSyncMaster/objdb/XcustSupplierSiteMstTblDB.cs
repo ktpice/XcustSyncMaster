@@ -53,6 +53,13 @@ namespace XcustSyncMaster
             xCSup.ATTRIBUTE13 = "ATTRIBUTE13";
             xCSup.ATTRIBUTE14 = "ATTRIBUTE14";
             xCSup.ATTRIBUTE15 = "ATTRIBUTE15";
+            xCSup.PAY_GROUP_LOOKUP_CODE = "PAY_GROUP_LOOKUP_CODE";
+            xCSup.TERMS_ID = "TERMS_ID";
+            xCSup.DEFAULT_PAYMENT_METHOD = "DEFAULT_PAYMENT_METHOD";
+            xCSup.LIABILITY_ACCOUNT_CCID = "LIABILITY_ACCOUNT_CCID";
+            xCSup.DEFAULT_WHT_CODE = "DEFAULT_WHT_CODE";
+            xCSup.TERM_NAME = "TERM_NAME";
+            xCSup.TAX_CLASSIFICATION_CODE = "TAX_CLASSIFICATION_CODE";
 
             xCSup.table = "XCUST_SUPPLIER_SITE_MST_TBL";
         }
@@ -124,8 +131,15 @@ namespace XcustSyncMaster
                                        xCSup.ATTRIBUTE13 + "," +
                                        xCSup.ATTRIBUTE14 + "," +
                                        xCSup.ATTRIBUTE15 + "," +
+                                       xCSup.PAY_GROUP_LOOKUP_CODE + "," +
+                                       xCSup.TERMS_ID + "," +
+                                       xCSup.DEFAULT_PAYMENT_METHOD + "," +
+                                       xCSup.LIABILITY_ACCOUNT_CCID + "," +
+                                       xCSup.DEFAULT_WHT_CODE + "," +
+                                       xCSup.TERM_NAME + "," +
+                                       xCSup.TAX_CLASSIFICATION_CODE + "," +
                                        xCSup.LAST_UPDATE_DATE + "," +
-                                       xCSup.CREATION_DATE +
+                                       xCSup.CREATION_DATE +             
                     ") " +
                                        
                     "Values( " + p.VENDOR_SITE_SPK_ID + "," +
@@ -154,8 +168,15 @@ namespace XcustSyncMaster
                                 p.ATTRIBUTE13 + "','" +
                                 p.ATTRIBUTE14 + "','" +
                                 p.ATTRIBUTE15 + "','" +
+                                p.PAY_GROUP_LOOKUP_CODE + "'," +
+                                p.TERMS_ID + ",'" +
+                                p.DEFAULT_PAYMENT_METHOD + "','" +
+                                p.LIABILITY_ACCOUNT_CCID + "','" +
+                                p.DEFAULT_WHT_CODE + "','" +
+                                p.TERM_NAME + "','" +
+                                p.TAX_CLASSIFICATION_CODE + "','" +
                                 p.LAST_UPDATE_DATE + "','" +
-                                p.CREATION_DATE + "'" +
+                                p.CREATION_DATE + "'" +              
             ") ";
 
                // MessageBox.Show(sql);

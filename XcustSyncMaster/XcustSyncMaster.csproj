@@ -54,7 +54,7 @@
     <Compile Include="Control\ColorScheme.cs" />
     <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlApSourceWebService.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Control\ControlCatMappingMstWebService.cs" />
     <Compile Include="Control\ControlLocatorMstWebService.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
@@ -63,7 +63,7 @@
     <Compile Include="Control\ControlUomConvertMstWebService.cs" />
     <Compile Include="Control\ControlCSTPeriodMstWebService.cs" />
     <Compile Include="Control\ControlValueSet.cs" />
-=======
+
 
     <Compile Include="Control\ControlBlanketLine.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Control\ControlLocationsWebService.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
     <Compile Include="Control\ControlGlCodeCombinationWebService.cs" />
->>>>>>> 8f4808e1af3626ae1ad7025a03a7ffe3530fc724
+
     <Compile Include="Control\ControlUomMstWebService.cs" />
     <Compile Include="Control\ControlSupplierSiteWebService.cs" />
 
@@ -150,9 +150,10 @@
     <Compile Include="gui\XCustGlEntityWebService.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="gui\XCustCurrencyMstWebService.cs">
-=======
+      <SubType>Form</SubType>
+    </Compile>
 
     <Compile Include="gui\XCustGlLedger.cs">
       <SubType>Form</SubType>
@@ -163,7 +164,7 @@
     </Compile>
     <Compile Include="gui\XCustSupplierSiteWebService.cs">
 
->>>>>>> 8f4808e1af3626ae1ad7025a03a7ffe3530fc724
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustSupplierWebService.cs">
@@ -208,17 +209,17 @@
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\XcustBlanketHeaderTblDB.cs" />
     <Compile Include="objdb\XcustApSourceMstTblDB.cs" />
-<<<<<<< HEAD
+
     <Compile Include="objdb\XcustCatMappingMstTblDB.cs" />
     <Compile Include="objdb\XcustItemLocatorMstTblDB.cs" />
-=======
+
 
     <Compile Include="objdb\XcustBlanketLineTblDB.cs" />
     <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustGlLedgerTblDB.cs" />
 
     <Compile Include="objdb\XcustLocationsMstTblDB.cs" />
->>>>>>> 8f4808e1af3626ae1ad7025a03a7ffe3530fc724
+
     <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustGlCodeCombinationMstTblDB.cs" />
 
@@ -241,17 +242,17 @@
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\XcustBlanketHeaderTbl.cs" />
     <Compile Include="object1\XcustApSourceMstTbl.cs" />
-<<<<<<< HEAD
+
     <Compile Include="object1\XcustCatMappingMstTbl.cs" />
     <Compile Include="object1\XcustItemLocatorMstTbl.cs" />
-=======
+
 
     <Compile Include="object1\XcustBlanketLineTbl.cs" />
     <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustGlLedgerTbl.cs" />
 
     <Compile Include="object1\XcustLocationsMstTbl.cs" />
->>>>>>> 8f4808e1af3626ae1ad7025a03a7ffe3530fc724
+
     <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustGlCodeCombinationMstTbl.cs" />
 

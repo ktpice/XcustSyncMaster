@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace XcustSyncMaster
 {
-    public class ControlItemMstWebService
+    public class ControlCurrencyMstWebService
     {
         static String fontName = "Microsoft Sans Serif";        //standard
         public String backColor1 = "#1E1E1E";        //standard
@@ -30,9 +30,9 @@ namespace XcustSyncMaster
 
         private String dateStart = "";      //gen log
 
-        public XcustItemMstTblDB xCItemDB;
+        public XcustCurrencyMstTblDB xCICurDB;
 
-        public ControlItemMstWebService(ControlMain cm)
+        public ControlCurrencyMstWebService(ControlMain cm)
         {
             Cm = cm;
             initConfig();
@@ -41,21 +41,21 @@ namespace XcustSyncMaster
         {
             conn = new ConnectDB("kfc_po", Cm.initC);        //standard
 
-            xCItemDB = new XcustItemMstTblDB(conn, Cm.initC);
+            xCICurDB = new XcustCurrencyMstTblDB(conn, Cm.initC);
 
             fontSize9 = 9.75f;        //standard
             fontSize8 = 8.25f;        //standard
             fV1B = new Font(fontName, fontSize9, FontStyle.Bold);        //standard
             fV1 = new Font(fontName, fontSize8, FontStyle.Regular);        //standard
         }
-        public void setXcustITEMTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
+        public void setXcustCURTbl(MaterialListView lv1, Form form1, MaterialProgressBar pB1)
         {
             String uri = "", dump = "";
             //HttpWebRequest request = CreateWebRequest();
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustITEMTbl ", "Web Service", lv1, form1);
+            addListView("setXcustCURTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -68,8 +68,8 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_ITEM_MASTER_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_ITEM_MASTER_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_CURRENCY_MST_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_CURRENCY_MST_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
@@ -95,7 +95,7 @@ namespace XcustSyncMaster
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustITEMTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustCURTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
             byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
@@ -118,13 +118,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustITEMTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustCURTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustITEMTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustCURTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -146,7 +146,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustITEMTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustCURTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);
@@ -164,44 +164,25 @@ namespace XcustSyncMaster
                 if (data1[row].Length <= 0) continue;
                 
                 String[] data2 = data1[row].Split(',');
-                XcustItemMstTbl item = new XcustItemMstTbl();
-                item.ORGANIZATION_ID = data2[0].Trim();
-                item.INVENTORY_ITEM_ID = data2[1].Trim();
-                item.ITEM_CODE = data2[2].Trim().Replace("\"", "");
-                item.ITEM_NAME = data2[3].Trim().Replace("\"", "");
-                item.DESCRIPTION = data2[4].Trim().Replace("\"", "");
-                item.ATTRIBUTE1 = data2[5].Trim().Replace("\"", "");
-                item.ATTRIBUTE2 = data2[6].Trim().Replace("\"", "");
-                item.ATTRIBUTE3 = data2[7].Trim().Replace("\"", "");
-                item.ATTRIBUTE4 = data2[8].Trim().Replace("\"", "");
-                item.ATTRIBUTE5 = data2[9].Trim().Replace("\"", "");
-                item.ATTRIBUTE6 = data2[10].Trim().Replace("\"", "");
-                item.ATTRIBUTE7 = data2[11].Trim().Replace("\"", "");
-                item.ATTRIBUTE8 = data2[12].Trim().Replace("\"", "");
-                item.ATTRIBUTE9 = data2[13].Trim().Replace("\"", "");
-                item.ATTRIBUTE10 = data2[14].Trim().Replace("\"", "");
-                item.ATTRIBUTE11 = data2[15].Trim().Replace("\"", "");
-                item.ATTRIBUTE12 = data2[16].Trim().Replace("\"", "");
-                item.ATTRIBUTE13 = data2[17].Trim().Replace("\"", "");
-                item.ATTRIBUTE14 = data2[18].Trim().Replace("\"", "");
-                item.ATTRIBUTE15 = data2[19].Trim().Replace("\"", "");
-                item.ITEM_STATUS = data2[20].Trim().Replace("\"", "");
-                item.ITEM_CLASS_NAME = data2[21].Trim().Replace("\"", "");
-                item.ITEM_CLASS_CODE = data2[22].Trim().Replace("\"", "");
-                item.ITEM_TYPE = data2[23].Trim().Replace("\"", "");
-                item.PRIMARY_UOM = data2[24].Trim().Replace("\"", "");
-                item.ITEM_CATEGORY_NAME = data2[25].Trim().Replace("\"", "");
-                item.ITEM_CATEGORY_CODE = data2[26].Trim().Replace("\"", "");
-                item.CREATION_DATE = data2[27].Trim().Replace("\"", "");
-                item.LAST_UPDATE_DATE = data2[28].Trim().Replace("\"", "");
-                item.LOT_CONTROL_CODE = data2[29].Trim().Replace("\"", "");
-                item.SERIAL_NUMBER_CONTROL_CODE = data2[30].Trim().Replace("\"", "");
-                item.ITEM_REFERENCE1 = data2[31].Trim().Replace("\"", "");
-                item.TAX_RATE = data2[32].Trim().Replace("\"", "");
-                item.ASSET_CATEGORY_CODE = data2[33].Trim().Replace("\"", "");
-                item.ACCOUNT_CODE_COMBINATION_ID = data2[34].Trim().Replace("\"", "");
+                XcustCurrencyMstTbl cur = new XcustCurrencyMstTbl();
+                cur.CURRENCY_CODE = data2[0].Trim().ToString().Replace("\"", "");
+                cur.DESCRIPTION = data2[1].Trim().Replace("\"", "");
+                cur.CREATION_DATE = data2[2].Trim().Replace("\"", "");
+                cur.LAST_UPDATE_DATE = data2[3].Trim().Replace("\"", "");
+                cur.CURRENCY_NAME = data2[4].Trim().ToString().Replace("\"", "");
+                cur.ENABLE = data2[5].Trim().Replace("\"", "");
+                cur.START_DATE = data2[6].Trim().Replace("\"", "");
+                cur.END_DATE = data2[7].Trim().Replace("\"", "");
+                
+                /*
+                cur.START_DATE = xCICurDB.xCCur.dateTimeYearToDB(data2[4].Trim().Replace("\"", ""));
+                cur.END_DATE = xCICurDB.xCCur.dateTimeYearToDB(data2[5].Trim().Replace("\"", ""));
+                cur.CREATION_DATE = xCICurDB.xCCur.dateTimeYearToDB(data2[6].Trim().Replace("\"", ""));
+                cur.LAST_UPDATE_DATE = xCICurDB.xCCur.dateTimeYearToDB(data2[7].Trim().Replace("\"", ""));
+                */
                 //MessageBox.Show("111"+item.CREATION_DATE);
-                xCItemDB.insertxCItemMst(item);
+                xCICurDB.insertxCCurMst(cur); 
+      
             }
             Console.WriteLine(decodedString);
         }

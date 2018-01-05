@@ -68,8 +68,8 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_MAS_UOM_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_MAS_UOM_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_UNIT_OF_MESAUE_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_UNIT_OF_MESAUE_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
@@ -170,11 +170,11 @@ namespace XcustSyncMaster
                 uom.DISABLE_DATE = data2[2].Trim().Replace("\"", "");
                 uom.LAST_UPDATE_DATE = data2[3].Trim().Replace("\"", "");
                 uom.CREATION_DATE = data2[4].Trim().Replace("\"", "");
-                uom.LAST_UPDATE_DATE = data2[5].Trim().Replace("\"", "");
-                uom.CREATION_DATE = data2[6].Trim().Replace("\"", "");
-                uom.attribute1 = data2[7].Trim().Replace("\"", "");
-                uom.uom_name = data2[8].Trim().Replace("\"", "");
-                uom.uom_description = data2[9].Trim().Replace("\"", "");
+                //uom.LAST_UPDATE_DATE = data2[5].Trim().Replace("\"", "");
+                //uom.CREATION_DATE = data2[6].Trim().Replace("\"", "");
+                uom.attribute1 = data2[5].Trim().Replace("\"", "");
+                uom.uom_name = data2[6].Trim().Replace("\"", "");
+                uom.uom_description = data2[7].Trim().Replace("\"", "");
                 //MessageBox.Show("111"+item.CREATION_DATE);
                 xCIUomDB.insertxCUomMst(uom); 
       

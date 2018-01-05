@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace XcustSyncMaster
 {
-    public class XCustItemMstWebService: Form
+    public class XCustCurrencyMstWebService: Form
     {
         int gapLine = 5;
         int grd0 = 0, grd1 = 100, grd2 = 240, grd3 = 320, grd4 = 570, grd5 = 700, grd51 = 700, grd6 = 820, grd7 = 900, grd8 = 1070, grd9 = 1200;
@@ -25,10 +25,10 @@ namespace XcustSyncMaster
         Color cTxtL, cTxtE, cForm;
 
         ControlMain Cm;
-        ControlItemMstWebService cItemWS;
+        ControlCurrencyMstWebService cICurWS;
         private ListViewColumnSorter lvwColumnSorter;
 
-        public XCustItemMstWebService(ControlMain cm)
+        public XCustCurrencyMstWebService(ControlMain cm)
         {
             this.Size = new Size(formwidth, formheight);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -40,7 +40,7 @@ namespace XcustSyncMaster
         }
         private void initConfig()
         {
-            cItemWS = new ControlItemMstWebService(Cm);
+            cICurWS = new ControlCurrencyMstWebService(Cm);
 
             initCompoment();
             pB1.Visible = false;
@@ -56,10 +56,10 @@ namespace XcustSyncMaster
             lv1.Columns.Add("   process   ", 100, HorizontalAlignment.Center);
             lv1.ListViewItemSorter = lvwColumnSorter;
 
-            lb2.Text = lb2.Text + " " + Cm.xcustitemmstwebservice_run;
-            if (Cm.xcustitemmstwebservice_run.ToLower().Equals("on"))
+            lb2.Text = lb2.Text + " " + Cm.xcustcurrencymstwebservice_run;
+            if (Cm.xcustcurrencymstwebservice_run.ToLower().Equals("on"))
             {
-                cItemWS.setXcustITEMTbl(lv1, this, pB1);
+                cICurWS.setXcustCURTbl(lv1, this, pB1);
             }
             //int i = 1;
         }
@@ -82,32 +82,32 @@ namespace XcustSyncMaster
             line5 = 270 + gapLine;
 
             lb1 = new MaterialLabel();
-            lb1.Font = cItemWS.fV1;
+            lb1.Font = cICurWS.fV1;
             lb1.Text = "Text File";
             lb1.AutoSize = true;
             Controls.Add(lb1);
-            lb1.Location = new System.Drawing.Point(cItemWS.formFirstLineX, cItemWS.formFirstLineY + gapLine);
+            lb1.Location = new System.Drawing.Point(cICurWS.formFirstLineX, cICurWS.formFirstLineY + gapLine);
 
             lb2 = new MaterialLabel();
-            lb2.Font = cItemWS.fV1;
-            lb2.Text = "Program Name XcustItemMst Web";
+            lb2.Font = cICurWS.fV1;
+            lb2.Text = "Program Name XcustCurrencyMst Web";
             lb2.AutoSize = true;
             Controls.Add(lb2);
-            lb2.Location = new System.Drawing.Point(grd3, cItemWS.formFirstLineY + gapLine);
+            lb2.Location = new System.Drawing.Point(grd3, cICurWS.formFirstLineY + gapLine);
 
             txtFileName = new MaterialSingleLineTextField();
-            txtFileName.Font = cItemWS.fV1;
+            txtFileName.Font = cICurWS.fV1;
             txtFileName.Text = "";
             txtFileName.Size = new System.Drawing.Size(300 - grd1 - 20 - 30, ControlHeight);
             Controls.Add(txtFileName);
-            txtFileName.Location = new System.Drawing.Point(grd1, cItemWS.formFirstLineY + gapLine);
+            txtFileName.Location = new System.Drawing.Point(grd1, cICurWS.formFirstLineY + gapLine);
             txtFileName.Hint = lb1.Text;
             txtFileName.Enter += txtFileName_Enter;
             txtFileName.Leave += txtFileName_Leave;
 
 
             btnRead = new MaterialFlatButton();
-            btnRead.Font = cItemWS.fV1;
+            btnRead.Font = cICurWS.fV1;
             btnRead.Text = "Web Service";
             btnRead.Size = new System.Drawing.Size(30, ControlHeight);
             Controls.Add(btnRead);
@@ -119,13 +119,13 @@ namespace XcustSyncMaster
             pB1 = new MaterialProgressBar();
             Controls.Add(pB1);
             pB1.Size = new System.Drawing.Size(formwidth - 40, pB1.Height);
-            pB1.Location = new System.Drawing.Point(cItemWS.formFirstLineX + 5, line41);
+            pB1.Location = new System.Drawing.Point(cICurWS.formFirstLineX + 5, line41);
 
             lv1 = new MaterialListView();
-            lv1.Font = cItemWS.fV1;
+            lv1.Font = cICurWS.fV1;
             lv1.FullRowSelect = true;
             lv1.Size = new System.Drawing.Size(formwidth - 40, formheight - line3 - 100);
-            lv1.Location = new System.Drawing.Point(cItemWS.formFirstLineX + 5, line42);
+            lv1.Location = new System.Drawing.Point(cICurWS.formFirstLineX + 5, line42);
             lv1.FullRowSelect = true;
             lv1.View = View.Details;
             //lv1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,7 +135,7 @@ namespace XcustSyncMaster
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            cItemWS.setXcustITEMTbl(lv1, this, pB1);
+            cICurWS.setXcustCURTbl(lv1, this, pB1);
         }
         private void txtFileName_Leave(object sender, EventArgs e)
         {

@@ -42,9 +42,21 @@ namespace XcustSyncMaster
             {
                 Application.Run(new XCustSubInvMstWebService(Cm));
             }
-            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustSubInvMstWebService"))
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustUomMstWebService"))
             {
                 Application.Run(new XCustUomMstWebService(Cm));
+            }
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustCurrencyMstWebService"))
+            {
+                Application.Run(new XCustCurrencyMstWebService(Cm));
+            }
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustBuMstWebService"))
+            {
+                Application.Run(new XCustBuMstWebService(Cm));
+            }
+            else if (System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToLower().Equals("XCustUomConvertMstWebService"))
+            {
+                Application.Run(new XCustUomConvertMstWebService(Cm));
             }
             else
             {
@@ -55,8 +67,16 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustTaxCodeWebService(Cm));
                 //Application.Run(new XCustSupplierSiteWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
-                //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
-                Application.Run(new XCustUomMstWebService(Cm));  //kts
+                //Application.Run(new XCustUomMstWebService(Cm));  //kts****
+                //Application.Run(new XCustBuMstWebService(Cm));  //kts
+                //Application.Run(new XCustCurrencyMstWebService(Cm));  //kts
+                //Application.Run(new XCustSubInvMstWebService(Cm));  //kts **
+                Application.Run(new XcustValueSet(Cm));  //kts
+                //Application.Run(new XcustItemLocator(Cm));  //kts
+                //Application.Run(new XCustItemMstWebService(Cm));  //kts
+                //Application.Run(new XCustUomConvertMstWebService(Cm));  //kts
+                //Application.Run(new XCustCSTPeriodMstWebService(Cm));  //kts
+                //Application.Run(new XCustCatMappingMstWebService(Cm));  //kts
             }
 
 

@@ -56,7 +56,9 @@ namespace XcustSyncMaster
             xCITEM.SERIAL_NUMBER_CONTROL_CODE = "SERIAL_NUMBER_CONTROL_CODE";
             xCITEM.CREATION_DATE = "CREATION_DATE";
             xCITEM.LAST_UPDATE_DATE = "LAST_UPDATE_DATE";
-            
+            xCITEM.TAX_RATE = "TAX_RATE";
+            xCITEM.ASSET_CATEGORY_CODE = "ASSET_CATEGORY_CODE";
+            xCITEM.ACCOUNT_CODE_COMBINATION_ID = "ACCOUNT_CODE_COMBINATION_ID";
 
             xCITEM.table = "xcust_item_mst_tbl";
         }
@@ -132,7 +134,10 @@ namespace XcustSyncMaster
                                                         "," + xCITEM.LOT_CONTROL_CODE + 
                                                         "," + xCITEM.SERIAL_NUMBER_CONTROL_CODE + 
                                                         "," + xCITEM.CREATION_DATE + 
-                                                        "," + xCITEM.LAST_UPDATE_DATE + 
+                                                        "," + xCITEM.LAST_UPDATE_DATE +
+                                                        "," + xCITEM.TAX_RATE +
+                                                        "," + xCITEM.ASSET_CATEGORY_CODE +
+                                                        "," + xCITEM.ACCOUNT_CODE_COMBINATION_ID +
                     ") " +
                     "Values('"  + decimal.Parse(p.ORGANIZATION_ID) +
                              "','" + decimal.Parse(p.INVENTORY_ITEM_ID) + 
@@ -165,7 +170,11 @@ namespace XcustSyncMaster
                              "','" + p.LOT_CONTROL_CODE + 
                              "','" + p.SERIAL_NUMBER_CONTROL_CODE + 
                              "','" + p.CREATION_DATE + 
-                             "','" + p.LAST_UPDATE_DATE + "'" +
+                             "','" + p.LAST_UPDATE_DATE +
+                             "','" + p.TAX_RATE +
+                             "','" + p.ASSET_CATEGORY_CODE +
+                             "','" + p.ACCOUNT_CODE_COMBINATION_ID +
+                             "'" +
                              ") ";
                 //MessageBox.Show(sql);
                 chk = conn.ExecuteNonQuery(sql, "kfc_po");

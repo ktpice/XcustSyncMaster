@@ -49,15 +49,15 @@ namespace XcustSyncMaster
             lvwColumnSorter.SortColumn = 0;
             lv1.Sort();
             //txtFileName.Text = cRDPO.initC.PathInitial + "PR03102017.txt";
-            txtFileName.Text = Cm.initC.AutoItemMaster;
+            txtFileName.Text = Cm.initC.AutoUomMaster;
 
             lv1.Columns.Add("NO", 50);
             lv1.Columns.Add("List File", formwidth - 50 - 40 - 100, HorizontalAlignment.Left);
             lv1.Columns.Add("   process   ", 100, HorizontalAlignment.Center);
             lv1.ListViewItemSorter = lvwColumnSorter;
 
-            lb2.Text = lb2.Text + " " + Cm.xcustitemmstwebservice_run;
-            if (Cm.xcustprwebservice_run.ToLower().Equals("on"))
+            lb2.Text = lb2.Text + " " + Cm.xcustuommstwebservice_run;
+            if (Cm.xcustuommstwebservice_run.ToLower().Equals("on"))
             {
                 cIUomWS.setXcustUOMTbl(lv1, this, pB1);
             }

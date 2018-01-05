@@ -137,7 +137,7 @@ namespace XcustSyncMaster
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            cVS.setValueSetMst(lv1, this, pB1);
+            cVS.setXcustValueTbl(lv1, this, pB1);
         }
         private void txtFileName_Leave(object sender, EventArgs e)
         {

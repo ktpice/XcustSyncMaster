@@ -8,6 +8,6 @@ namespace XcustSyncMaster
 {
     public class XcustValueSetMstTbl:Persistent
     {
-        public String VALUE_SET_ID = "", VALUE_SET_CODE = "", VALUE_ID = "", VALUE = "", ENABLED_FLAG = "", DESCRIPTION = "", LAST_UPDATE_DATE = "", CREATION_DATE = "";
+        public String VALUE_SET_ID = "", VALUE_SET_CODE = "", VALUE_ID = "", VALUE = "", ENABLED_FLAG = "", DESCRIPTION = "", LAST_UPDATE_DATE = "", CREATION_DATE = "", CODE_COMBINATION_ID = "", ATTRIBUTE3 = "";
     }
 }

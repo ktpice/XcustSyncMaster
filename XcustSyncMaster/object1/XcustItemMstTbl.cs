@@ -40,5 +40,8 @@ namespace XcustSyncMaster
         public String SERIAL_NUMBER_CONTROL_CODE = "";
         public String LAST_UPDATE_DATE = "";
         public String CREATION_DATE = "";
+        public String TAX_RATE = "";
+        public String ASSET_CATEGORY_CODE = "";
+        public String ACCOUNT_CODE_COMBINATION_ID = "";
     }
 }

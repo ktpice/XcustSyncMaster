@@ -85,8 +85,8 @@ namespace XcustSyncMaster
                                                         "," + xCUOM.uom_name + 
                                                         "," + xCUOM.uom_description + 
                     ") " +
-                    "Values('"  + decimal.Parse(p.UNIT_OF_MEASURE_ID) +
-                             "','" + decimal.Parse(p.UOM_CODE) + 
+                    "Values('"  + p.UNIT_OF_MEASURE_ID +
+                             "','" + p.UOM_CODE + 
                              "','" + p.DISABLE_DATE + 
                              "','" + p.LAST_UPDATE_DATE + 
                              "','" + p.CREATION_DATE + 
@@ -101,7 +101,7 @@ namespace XcustSyncMaster
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error " + ex.ToString(), "insert Doctor");
+                MessageBox.Show("Error " + ex.ToString(), "insert Doctor");
             }
 
             return chk;

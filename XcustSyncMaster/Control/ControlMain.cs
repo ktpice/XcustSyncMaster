@@ -30,6 +30,13 @@ namespace XcustSyncMaster
         public String xcustitemmstwebservice_run = ""; //kts
         public String xcustsubinvmstwebservice_run = "";  //kts
         public String xcustuommstwebservice_run = "";  //kts
+        public String xcustuomconvertmstwebservice_run = "";  //kts
+        public String xcustcurrencymstwebservice_run = "";  //kts
+        public String xcustbumstwebservice_run = "";  //kts
+        public String xcustLocatormstwebservice_run = "";  //kts
+        public String xcustCSTPeriodwebservice_run = "";  //kts
+        public String xcustCatMappingwebservice_run = "";  //kts
+
 
         public ControlMain()
         {
@@ -62,7 +69,12 @@ namespace XcustSyncMaster
                     xcustitemmstwebservice_run = aaa[0].Equals("xcustitemmstwebservice_run") ? aaa[1] : ""; //kts
                     xcustitemmstwebservice_run = aaa[0].Equals("xcustsubinvmstwebservice_run") ? aaa[1] : ""; //kts
                     xcustuommstwebservice_run = aaa[0].Equals("xcustuommstwebservice_run") ? aaa[1] : ""; //kts
-
+                    xcustuomconvertmstwebservice_run = aaa[0].Equals("xcustuomconvertmstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustcurrencymstwebservice_run = aaa[0].Equals("xcustcurrencymstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustbumstwebservice_run = aaa[0].Equals("xcustbumstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustLocatormstwebservice_run = aaa[0].Equals("xcustLocatormstwebservice_run") ? aaa[1] : ""; //kts
+                    xcustCSTPeriodwebservice_run = aaa[0].Equals("xcustCSTPeriodwebservice_run") ? aaa[1] : ""; //kts
+                    xcustCatMappingwebservice_run = aaa[0].Equals("xcustCatMappingwebservice_run") ? aaa[1] : ""; //kts
                 }
             }
         }
@@ -426,6 +438,11 @@ namespace XcustSyncMaster
             initC.AutoItemMaster = iniFile.Read("AutoItemMaster"); //kts
             initC.AutoSubInvMaster = iniFile.Read("AutoSubInvMaster"); //kts
             initC.AutoUomMaster = iniFile.Read("AutoUomMaster"); //kts
+            initC.AutoUomConvertMaster = iniFile.Read("AutoUomConvertMaster"); //kts
+            initC.AutoCurMaster = iniFile.Read("AutoCurMaster"); //kts
+            initC.AutoBuMaster = iniFile.Read("AutoBuMaster"); //kts
+            initC.AutoItemLocator = iniFile.Read("AutoItemLocator"); //kts
+            initC.AutoItemLocator = iniFile.Read("AutoCSTPeriod"); //kts
 
             initC.PathMaster = iniFile.Read("PathMaster");
 

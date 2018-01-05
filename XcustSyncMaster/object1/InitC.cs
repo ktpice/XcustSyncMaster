@@ -40,6 +40,12 @@ namespace XcustSyncMaster
         public String AutoItemMaster = "";  //kts
         public String AutoSubInvMaster = "";  //kts
         public String AutoUomMaster = "";  //kts
+        public String AutoUomConvertMaster = "";  //kts
+        public String AutoCurMaster = "";  //kts
+        public String AutoBuMaster = "";  //kts
+        public String AutoItemLocator = "";  //kts
+        public String AutoCSTPeriodMaster = "";  //kts
+        public String AutoCatMappingMaster = "";  //kts
 
         public String PathMaster = "";
 

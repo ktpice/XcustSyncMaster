@@ -34,6 +34,7 @@ namespace XcustSyncMaster
             xCSUVINV.attribute1 = "attribute1";
             xCSUVINV.attribute2 = "attribute2";
             xCSUVINV.attribute3 = "attribute3";
+            xCSUVINV.CODE_COMBINATION_ID = "CODE_COMBINATION_ID";
 
             xCSUVINV.table = "XCUST_SUBINVENTORY_MST_TBL";
         }
@@ -87,10 +88,11 @@ namespace XcustSyncMaster
                                                         "," + xCSUVINV.CREATION_DATE + 
                                                         "," + xCSUVINV.attribute1 + 
                                                         "," + xCSUVINV.attribute2 + 
-                                                        "," + xCSUVINV.attribute3 + 
+                                                        "," + xCSUVINV.attribute3 +
+                                                        //"," + xCSUVINV.CODE_COMBINATION_ID +
                     ") " +
-                    "Values('"  + decimal.Parse(p.ORGANIZATION_ID) +
-                             "','" + decimal.Parse(p.SUBINVENTORY_ID) + 
+                    "Values('"  + p.ORGANIZATION_ID +
+                             "','" + p.SUBINVENTORY_ID + 
                              "','" + p.SECONDARY_INVENTORY_NAME + 
                              "','" + p.DESCRIPTION + 
                              "','" + p.LOCATOR_TYPE + 
@@ -98,7 +100,9 @@ namespace XcustSyncMaster
                              "','" +p.CREATION_DATE + 
                              "','" + p.attribute1 + 
                              "','" + p.attribute2 + 
-                             "','" +p.attribute3 +  "'" +
+                             "','" +p.attribute3 +
+                             //"','" + p.CODE_COMBINATION_ID + 
+                             "'" +
                              ") ";
                 //MessageBox.Show(sql);
                 chk = conn.ExecuteNonQuery(sql, "kfc_po");
@@ -107,7 +111,8 @@ namespace XcustSyncMaster
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error " + ex.ToString(), "insert Doctor");
+                //MessageBox.Show("exception"+sql);
+                MessageBox.Show("Error " + ex.ToString(), "insert Doctor");
             }
 
             return chk;

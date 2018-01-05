@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace XcustSyncMaster
 {
-    public class XCustItemMstWebService: Form
+    public class XCustUomConvertMstWebService: Form
     {
         int gapLine = 5;
         int grd0 = 0, grd1 = 100, grd2 = 240, grd3 = 320, grd4 = 570, grd5 = 700, grd51 = 700, grd6 = 820, grd7 = 900, grd8 = 1070, grd9 = 1200;
@@ -25,10 +25,10 @@ namespace XcustSyncMaster
         Color cTxtL, cTxtE, cForm;
 
         ControlMain Cm;
-        ControlItemMstWebService cItemWS;
+        ControlUomConvertMstWebService cIUomConvWS;
         private ListViewColumnSorter lvwColumnSorter;
 
-        public XCustItemMstWebService(ControlMain cm)
+        public XCustUomConvertMstWebService(ControlMain cm)
         {
             this.Size = new Size(formwidth, formheight);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -40,7 +40,7 @@ namespace XcustSyncMaster
         }
         private void initConfig()
         {
-            cItemWS = new ControlItemMstWebService(Cm);
+            cIUomConvWS = new ControlUomConvertMstWebService(Cm);
 
             initCompoment();
             pB1.Visible = false;
@@ -49,17 +49,17 @@ namespace XcustSyncMaster
             lvwColumnSorter.SortColumn = 0;
             lv1.Sort();
             //txtFileName.Text = cRDPO.initC.PathInitial + "PR03102017.txt";
-            txtFileName.Text = Cm.initC.AutoItemMaster;
+            txtFileName.Text = Cm.initC.AutoUomConvertMaster;
 
             lv1.Columns.Add("NO", 50);
             lv1.Columns.Add("List File", formwidth - 50 - 40 - 100, HorizontalAlignment.Left);
             lv1.Columns.Add("   process   ", 100, HorizontalAlignment.Center);
             lv1.ListViewItemSorter = lvwColumnSorter;
 
-            lb2.Text = lb2.Text + " " + Cm.xcustitemmstwebservice_run;
-            if (Cm.xcustitemmstwebservice_run.ToLower().Equals("on"))
+            lb2.Text = lb2.Text + " " + Cm.xcustuomconvertmstwebservice_run;
+            if (Cm.xcustuommstwebservice_run.ToLower().Equals("on"))
             {
-                cItemWS.setXcustITEMTbl(lv1, this, pB1);
+                cIUomConvWS.setXcustUOMConvertTbl(lv1, this, pB1);
             }
             //int i = 1;
         }
@@ -82,32 +82,32 @@ namespace XcustSyncMaster
             line5 = 270 + gapLine;
 
             lb1 = new MaterialLabel();
-            lb1.Font = cItemWS.fV1;
+            lb1.Font = cIUomConvWS.fV1;
             lb1.Text = "Text File";
             lb1.AutoSize = true;
             Controls.Add(lb1);
-            lb1.Location = new System.Drawing.Point(cItemWS.formFirstLineX, cItemWS.formFirstLineY + gapLine);
+            lb1.Location = new System.Drawing.Point(cIUomConvWS.formFirstLineX, cIUomConvWS.formFirstLineY + gapLine);
 
             lb2 = new MaterialLabel();
-            lb2.Font = cItemWS.fV1;
-            lb2.Text = "Program Name XcustItemMst Web";
+            lb2.Font = cIUomConvWS.fV1;
+            lb2.Text = "Program Name Xcust Uom Conversion Mst Web";
             lb2.AutoSize = true;
             Controls.Add(lb2);
-            lb2.Location = new System.Drawing.Point(grd3, cItemWS.formFirstLineY + gapLine);
+            lb2.Location = new System.Drawing.Point(grd3, cIUomConvWS.formFirstLineY + gapLine);
 
             txtFileName = new MaterialSingleLineTextField();
-            txtFileName.Font = cItemWS.fV1;
+            txtFileName.Font = cIUomConvWS.fV1;
             txtFileName.Text = "";
             txtFileName.Size = new System.Drawing.Size(300 - grd1 - 20 - 30, ControlHeight);
             Controls.Add(txtFileName);
-            txtFileName.Location = new System.Drawing.Point(grd1, cItemWS.formFirstLineY + gapLine);
+            txtFileName.Location = new System.Drawing.Point(grd1, cIUomConvWS.formFirstLineY + gapLine);
             txtFileName.Hint = lb1.Text;
             txtFileName.Enter += txtFileName_Enter;
             txtFileName.Leave += txtFileName_Leave;
 
 
             btnRead = new MaterialFlatButton();
-            btnRead.Font = cItemWS.fV1;
+            btnRead.Font = cIUomConvWS.fV1;
             btnRead.Text = "Web Service";
             btnRead.Size = new System.Drawing.Size(30, ControlHeight);
             Controls.Add(btnRead);
@@ -119,13 +119,13 @@ namespace XcustSyncMaster
             pB1 = new MaterialProgressBar();
             Controls.Add(pB1);
             pB1.Size = new System.Drawing.Size(formwidth - 40, pB1.Height);
-            pB1.Location = new System.Drawing.Point(cItemWS.formFirstLineX + 5, line41);
+            pB1.Location = new System.Drawing.Point(cIUomConvWS.formFirstLineX + 5, line41);
 
             lv1 = new MaterialListView();
-            lv1.Font = cItemWS.fV1;
+            lv1.Font = cIUomConvWS.fV1;
             lv1.FullRowSelect = true;
             lv1.Size = new System.Drawing.Size(formwidth - 40, formheight - line3 - 100);
-            lv1.Location = new System.Drawing.Point(cItemWS.formFirstLineX + 5, line42);
+            lv1.Location = new System.Drawing.Point(cIUomConvWS.formFirstLineX + 5, line42);
             lv1.FullRowSelect = true;
             lv1.View = View.Details;
             //lv1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,7 +135,7 @@ namespace XcustSyncMaster
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            cItemWS.setXcustITEMTbl(lv1, this, pB1);
+            cIUomConvWS.setXcustUOMConvertTbl(lv1, this, pB1);
         }
         private void txtFileName_Leave(object sender, EventArgs e)
         {

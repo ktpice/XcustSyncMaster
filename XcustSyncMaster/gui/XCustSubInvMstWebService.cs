@@ -55,9 +55,9 @@ namespace XcustSyncMaster
             lv1.Columns.Add("List File", formwidth - 50 - 40 - 100, HorizontalAlignment.Left);
             lv1.Columns.Add("   process   ", 100, HorizontalAlignment.Center);
             lv1.ListViewItemSorter = lvwColumnSorter;
-
-            lb2.Text = lb2.Text + " " + Cm.xcustitemmstwebservice_run;
-            if (Cm.xcustprwebservice_run.ToLower().Equals("on"))
+            
+            lb2.Text = lb2.Text + " " + Cm.xcustsubinvmstwebservice_run;
+            if (Cm.xcustsubinvmstwebservice_run.ToLower().Equals("on"))
             {
                 cISubWS.setXcustSUBTbl(lv1, this, pB1);
             }

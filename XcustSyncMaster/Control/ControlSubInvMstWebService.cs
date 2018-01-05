@@ -68,8 +68,8 @@ namespace XcustSyncMaster
                         "<v2:runReport> " +
                             "<v2:reportRequest> " +
                                 "<v2:attributeLocale>en-US</v2:attributeLocale> " +
-                                "<v2:attributeTemplate>XCUST_SUBINVENTORY_REP</v2:attributeTemplate> " +
-                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_SUBINVENTORY_REP.xdo</v2:reportAbsolutePath> " +
+                                "<v2:attributeTemplate>XCUST_SUBINVENTORY_MST_REP</v2:attributeTemplate> " +
+                                "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_SUBINVENTORY_MST_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
@@ -162,19 +162,24 @@ namespace XcustSyncMaster
             {
                 if (row == 0) continue;
                 if (data1[row].Length <= 0) continue;
-                
-                String[] data2 = data1[row].Split(',');
+
+                string tmp = data1[row].Replace(System.Environment.NewLine, "");
+
+                //String[] data2 = data1[row].Split(',');
+                String[] data2 = tmp.Split(',');
+
                 XcustSubInvMstTbl subinv = new XcustSubInvMstTbl();
                 subinv.ORGANIZATION_ID = data2[0].Trim().ToString();
                 subinv.SUBINVENTORY_ID = data2[1].Trim().ToString();
-                subinv.SECONDARY_INVENTORY_NAME = data2[2].Trim().Replace("\"", "");
-                subinv.DESCRIPTION = data2[3].Trim().Replace("\"", "");
-                subinv.LOCATOR_TYPE = data2[4].Trim().Replace("\"", "");
-                subinv.LAST_UPDATE_DATE = data2[5].Trim().Replace("\"", "");
-                subinv.CREATION_DATE = data2[6].Trim().Replace("\"", "");
+                subinv.LAST_UPDATE_DATE = data2[2].Trim().Replace("\"", "");
+                subinv.CREATION_DATE = data2[3].Trim().Replace("\"", "");
+                subinv.DESCRIPTION = data2[4].ToString().Replace("\"", "");
+                subinv.LOCATOR_TYPE = data2[5].Trim().Replace("\"", "");
+                subinv.SECONDARY_INVENTORY_NAME = data2[6].Trim().Replace("\"", "");
                 subinv.attribute1 = data2[7].Trim().Replace("\"", "");
                 subinv.attribute2 = data2[8].Trim().Replace("\"", "");
                 subinv.attribute3 = data2[9].Trim().Replace("\"", "");
+                //subinv.CODE_COMBINATION_ID = "";// data2[9].Trim().Replace("\"", "");
                 //MessageBox.Show("111"+item.CREATION_DATE);
                 xCISubDB.insertxCSubInvMst(subinv); 
       

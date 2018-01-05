@@ -104,8 +104,8 @@ namespace XcustSyncMaster
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>icetech@iceconsulting.co.th</v2:userID> " +  //username
-                                "<v2:password>icetech@2017</v2:password> " +   //password
+                                "<v2:userID>"+ Cm.initC.usercloud + "</v2:userID> " +  //username
+                                "<v2:password>"+ Cm.initC.passcloud + "</v2:password> " +   //password
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
                                 "</soapenv:Envelope> ";
@@ -114,7 +114,7 @@ namespace XcustSyncMaster
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
             addListView("setXcustBlkLTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
-            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
+            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(Cm.initC.usercloud + ":" + Cm.initC.passcloud);
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
 
             // Create HttpWebRequest connection to the service
@@ -186,7 +186,7 @@ namespace XcustSyncMaster
                 XcustBlanketLineTbl item = new XcustBlanketLineTbl();
 
                 item.LINE_NUMBER = data2[0].Trim().Replace("\"", "");
-                item.ITEM_ID = data2[1].Trim().Replace("\"", "");
+                item.ITEM_ID = data2[1].Trim().Equals("") ? "0" : data2[1].Trim();
                 item.ITEM_CODE = data2[2].Trim().Replace("\"", "");
                 item.DESCRIPTION = data2[3].Trim().Replace("\"", "");
                 item.UOM = data2[4].Trim().Trim().Replace("\"", "");

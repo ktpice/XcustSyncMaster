@@ -50,7 +50,7 @@ namespace XcustSyncMaster
             lvwColumnSorter.SortColumn = 0;
             lv1.Sort();
             //txtFileName.Text = cRDPO.initC.PathInitial + "PR03102017.txt";
-            txtFileName.Text = Cm.initC.AutoValueSet;
+            txtFileName.Text = Cm.initC.AutoBlanketHeader;
 
             lv1.Columns.Add("NO", 50);
             lv1.Columns.Add("List File", formwidth - 50 - 40 - 100, HorizontalAlignment.Left);

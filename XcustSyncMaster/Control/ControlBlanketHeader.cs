@@ -105,8 +105,8 @@ namespace XcustSyncMaster
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>icetech@iceconsulting.co.th</v2:userID> " +  //username
-                                "<v2:password>icetech@2017</v2:password> " +   //password
+                                "<v2:userID>" + Cm.initC.usercloud + "</v2:userID> " +  //username
+                                "<v2:password>" + Cm.initC.passcloud + "</v2:password> " +   //password
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
                                 "</soapenv:Envelope> ";
@@ -115,7 +115,7 @@ namespace XcustSyncMaster
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
             addListView("setXcustPRTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
-            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
+            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(Cm.initC.usercloud +  ":" + Cm.initC.passcloud);
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
 
             // Create HttpWebRequest connection to the service

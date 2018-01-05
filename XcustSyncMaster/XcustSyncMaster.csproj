@@ -54,28 +54,20 @@
     <Compile Include="Control\ColorScheme.cs" />
     <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlApSourceWebService.cs" />
-
     <Compile Include="Control\ControlCatMappingMstWebService.cs" />
-    <Compile Include="Control\ControlLocatorMstWebService.cs" />
     <Compile Include="Control\ControlGlEntityWebService.cs" />
+    <Compile Include="Control\ControlLocatorMstWebService.cs" />
     <Compile Include="Control\ControlCurrencyMstWebService.cs" />
     <Compile Include="Control\ControlBuMstWebService.cs" />
     <Compile Include="Control\ControlUomConvertMstWebService.cs" />
     <Compile Include="Control\ControlCSTPeriodMstWebService.cs" />
     <Compile Include="Control\ControlValueSet.cs" />
-
-
     <Compile Include="Control\ControlBlanketLine.cs" />
-    <Compile Include="Control\ControlGlEntityWebService.cs" />
     <Compile Include="Control\ControlGlLedger.cs" />
-
     <Compile Include="Control\ControlLocationsWebService.cs" />
-    <Compile Include="Control\ControlGlEntityWebService.cs" />
     <Compile Include="Control\ControlGlCodeCombinationWebService.cs" />
-
     <Compile Include="Control\ControlUomMstWebService.cs" />
     <Compile Include="Control\ControlSupplierSiteWebService.cs" />
-
     <Compile Include="Control\ControlSupplierWebService.cs" />
     <Compile Include="Control\ControlTaxCodeWebService.cs" />
     <Compile Include="Control\ControlItemMstWebService.cs" />
@@ -138,36 +130,31 @@
     <Compile Include="gui\XCustApSourceWebService.cs">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="gui\XCustBlanketLine.cs">
       <SubType>Form</SubType>
     </Compile>
-    
     <Compile Include="gui\XCustLocationsWebService.cs">
-
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustGlEntityWebService.cs">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="gui\XCustCurrencyMstWebService.cs">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="gui\XCustGlLedger.cs">
       <SubType>Form</SubType>
     </Compile>
-    
     <Compile Include="gui\XCustGlCodeCombinationWebService.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustSupplierSiteWebService.cs">
-
-
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustSupplierWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\XcustSyncMaster.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\XCustTaxCodeWebService.cs">
@@ -209,20 +196,13 @@
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\XcustBlanketHeaderTblDB.cs" />
     <Compile Include="objdb\XcustApSourceMstTblDB.cs" />
-
     <Compile Include="objdb\XcustCatMappingMstTblDB.cs" />
+    <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustItemLocatorMstTblDB.cs" />
-
-
     <Compile Include="objdb\XcustBlanketLineTblDB.cs" />
-    <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustGlLedgerTblDB.cs" />
-
     <Compile Include="objdb\XcustLocationsMstTblDB.cs" />
-
-    <Compile Include="objdb\XcustGlEntityMstTblDB.cs" />
     <Compile Include="objdb\XcustGlCodeCombinationMstTblDB.cs" />
-
     <Compile Include="objdb\XcustGlPeriodMstTblDB.cs" />
     <Compile Include="objdb\XcustItemMstTblDB.cs" />
     <Compile Include="objdb\XcustPoReceiptTblDB.cs" />
@@ -242,20 +222,13 @@
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\XcustBlanketHeaderTbl.cs" />
     <Compile Include="object1\XcustApSourceMstTbl.cs" />
-
     <Compile Include="object1\XcustCatMappingMstTbl.cs" />
+    <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustItemLocatorMstTbl.cs" />
-
-
     <Compile Include="object1\XcustBlanketLineTbl.cs" />
-    <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustGlLedgerTbl.cs" />
-
     <Compile Include="object1\XcustLocationsMstTbl.cs" />
-
-    <Compile Include="object1\XcustGlEntityMstTbl.cs" />
     <Compile Include="object1\XcustGlCodeCombinationMstTbl.cs" />
-
     <Compile Include="object1\XcustGlPeriodMstTbl.cs" />
     <Compile Include="object1\XcustItemMstTbl.cs" />
     <Compile Include="object1\XcustPoReceiptTbl.cs" />

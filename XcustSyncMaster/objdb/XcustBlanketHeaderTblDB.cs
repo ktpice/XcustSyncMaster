@@ -43,7 +43,7 @@ namespace XcustSyncMaster
             xCBlKH.CREATION_DATE = "CREATION_DATE";
             xCBlKH.PO_HEADER_ID = "PO_HEADER_ID";
 
-            xCBlKH.table = "XCUST_BLANKET_AGREEMENT_HEADER_TBL";
+            xCBlKH.table = "XCUST_BLANKET_AGREEMENT_HEADER_TBL_TEST";
         }
 
         public Boolean selectDupPk(String POCUMENT_BU, String AGREEMENT_NUMBER, String PO_HEADER_ID)

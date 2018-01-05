@@ -131,7 +131,9 @@ namespace XcustSyncMaster
         {
 
             initC.usercloud = iniFile.Read("usercloud"); 
-            initC.passcloud = iniFile.Read("passcloud"); 
+            initC.passcloud = iniFile.Read("passcloud");
+
+            initC.Mastername = iniFile.Read("Mastername");
 
 
             initC.EmailPort = iniFile.Read("EmailPort");
@@ -143,7 +145,6 @@ namespace XcustSyncMaster
             
 
             initC.EmailHost = iniFile.Read("EmailHost");        // orc backoffice
-            initC.EmailSender = iniFile.Read("EmailSender");
            
 
             initC.databaseDBKFCPO = iniFile.Read("databaseDBKFCPO");        // orc BIT
@@ -160,16 +161,20 @@ namespace XcustSyncMaster
             initC.AutoCurMaster = iniFile.Read("AutoCurMaster"); //kts
             initC.AutoBuMaster = iniFile.Read("AutoBuMaster"); //kts
             initC.AutoItemLocator = iniFile.Read("AutoItemLocator"); //kts
-            initC.AutoItemLocator = iniFile.Read("AutoCSTPeriod"); //kts
+            initC.AutoCSTPeriod = iniFile.Read("AutoCSTPeriod"); //kts
 
             initC.AutoGlPeriod = iniFile.Read("AutoGlPeriod");  //kwl 20171129
             initC.AutoApSource = iniFile.Read("AutoApSource");  //kwl 20171129
             initC.AutoGlEntity = iniFile.Read("AutoGlEntity");  //kwl 20171129
-            initC.AutoGlEntity = iniFile.Read("AutoTaxCode");  //kwl 20171130
-            initC.AutoGlEntity = iniFile.Read("AutoSupplier");  //kwl 20171130
-            initC.AutoGlEntity = iniFile.Read("AutoSupplierSite");  //kwl 20171130
+            initC.AutoTaxCode = iniFile.Read("AutoTaxCode");  //kwl 20171130
+            initC.AutoSupplier = iniFile.Read("AutoSupplier");  //kwl 20171130
+            initC.AutoSupplierSite = iniFile.Read("AutoSupplierSite");  //kwl 20171130
 
-            
+            initC.AutoBlanketHeader = iniFile.Read("AutoBlanketHeader");  //ktp
+            initC.AutoBlanketLine = iniFile.Read("AutoBlanketLine");  //ktp
+            initC.AutoGlLedger = iniFile.Read("AutoGlLedger");  //ktp
+
+
 
             //initC.grdQuoColor = iniFile.Read("gridquotationcolor");
 

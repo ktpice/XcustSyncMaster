@@ -81,22 +81,22 @@ namespace XcustSyncMaster
                 //p.RowNumber = selectMaxRowNumber(p.YearId);
                 //p.Active = "1";
                 String last_update_by = "0", creation_by = "0";
-                sql = "Insert Into " + xCGl.table + "(" + 
+                sql = "Insert Into " + xCGl.table + "(" +
                                        xCGl.REGISTRATION_ID + "," +
                                        xCGl.BRANCH_NUMBER + "," +
-                                       xCGl.REGISTERED_NAME + "," + 
+                                       xCGl.REGISTERED_NAME + "," +
                                        xCGl.REGISTRATION_NUMBER + "," +
-                                       xCGl.ADDRESS_LINE_1 + "," + 
-                                       xCGl.ADDRESS_LINE_2 + "," + 
+                                       xCGl.ADDRESS_LINE_1 + "," +
+                                       xCGl.ADDRESS_LINE_2 + "," +
                                        xCGl.ADDRESS_LINE_3 + "," +
-                                       xCGl.TOWN_OR_CITY + "," + 
+                                       xCGl.TOWN_OR_CITY + "," +
                                        xCGl.REGION_2 + "," +
                                        xCGl.POSTAL_CODE + "," +
                                        xCGl.COUNTRY +
                     ") " +
 
                 "Values( " + p.REGISTRATION_ID + ",'" +
-                    p.BRANCH_NUMBER + "','" + p.REGISTERED_NAME + "','" + 
+                    p.BRANCH_NUMBER + "','" + p.REGISTERED_NAME + "','" +
                     p.REGISTRATION_NUMBER + "','" + p.ADDRESS_LINE_1 + "','" +
                     p.ADDRESS_LINE_2 + "','" + p.ADDRESS_LINE_3 + "','" +
                     p.TOWN_OR_CITY + "','" + p.REGION_2 + "','" +

@@ -53,22 +53,22 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustApSourceWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm));
                 //Application.Run(new XCustTaxCodeWebService(Cm));
-                Application.Run(new XCustSupplierSiteWebService(Cm));
+                //Application.Run(new XCustSupplierSiteWebService(Cm));
                 //Application.Run(new XCustSupplierWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
                 //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
-<<<<<<< HEAD
+
 
                 //Application.Run(new XcustBlanketHeader(Cm));
 
                 //Application.Run(new XCustBlanketLine(Cm));
                 Application.Run(new XCustGlLedger(Cm));
-=======
+
                 //Application.Run(new XCustUomMstWebService(Cm));  //kts
                 //Application.Run(new XCustGlCodeCombinationWebService(Cm));
                 //Application.Run(new XCustLocationsWebService(Cm));
 
->>>>>>> 1b8bdc7e6acef312df54fef4310c2300662223ef
+
             }
 
 

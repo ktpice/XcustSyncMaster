@@ -53,18 +53,7 @@ namespace XcustSyncMaster
         public ConnectDB(String host, InitC initc)
         {
             initC = initc;
-            if (host == "bit")
-            {
-                connBIT = new SqlConnection();
-                //connMainHIS.ConnectionString = GetConfig(hostName);
-                connBIT.ConnectionString = "Server=" + initC.hostDBBIT + ";Database=" + initC.databaseDBBIT + ";Uid=" + initC.userDBBIT + ";Pwd=" + initC.passDBBIT + ";Connection Timeout=300;";
-            }            
-            else if (host == "bithis")
-            {
-                connBITDemo = new SqlConnection();
-                connBITDemo.ConnectionString = "Server=" + initC.hostDBBITDemo + ";Database=" + initC.databaseDBBITDemo + ";Uid=" + initC.userDBBITDemo + ";Pwd=" + initC.ImportSource + ";Connection Timeout=300;";
-            }
-            else if (host == "kfc_po")
+            if (host == "kfc_po")
             {
                 connKFC = new SqlConnection();
                 //connKFC.ConnectionString = "Server=" + initC.hostDBKFCPO + ";Database=" + initC.databaseDBKFCPO + ";Uid=" + initC.userDBKFCPO + ";Pwd=" + initC.passDBKFCPO + ";port = " + initC.portDBKFCPO + ";Connection Timeout = 300;default command timeout=0; CharSet=utf8;";

@@ -204,10 +204,6 @@ namespace XcustSyncMaster
                 item.END_DATE = data2[15].Trim().Trim().Replace("\"", "");
                 item.PO_HEADER_ID = data2[16].Trim().Equals("") ? "0" : data2[16].Trim();
                 item.RELEASE_AMT = "0";
-                //item.AGREEMENT_AMT = "50";
-                //item.MIN_RELEASE_AMT = "0";
-                //item.PO_HEADER_ID = "300000001045402";
-
 
 
                 //item.LAST_UPDATE_DATE = xCBlkHDB.xCBlKH.dateTimeYearToDB1(data2[0].Trim());

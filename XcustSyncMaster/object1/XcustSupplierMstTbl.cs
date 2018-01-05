@@ -20,6 +20,7 @@ namespace XcustSyncMaster
         public String ATTRIBUTE3 = "";
         public String ATTRIBUTE4 = "";
         public String ATTRIBUTE5 = "";
+        public String TAX_CLASSIFICATION_CODE = "";
 
     }
 }

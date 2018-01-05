@@ -66,7 +66,9 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustGlEntityWebService(Cm));
                 //Application.Run(new XCustTaxCodeWebService(Cm));
                 //Application.Run(new XCustSupplierSiteWebService(Cm));
+                //Application.Run(new XCustSupplierWebService(Cm));
                 //Application.Run(new XCustGlEntityWebService(Cm)); 
+<<<<<<< HEAD
                 //Application.Run(new XCustUomMstWebService(Cm));  //kts****
                 //Application.Run(new XCustBuMstWebService(Cm));  //kts
                 //Application.Run(new XCustCurrencyMstWebService(Cm));  //kts
@@ -77,6 +79,21 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustUomConvertMstWebService(Cm));  //kts
                 //Application.Run(new XCustCSTPeriodMstWebService(Cm));  //kts
                 //Application.Run(new XCustCatMappingMstWebService(Cm));  //kts
+=======
+                //Application.Run(new XCustSubInvMstWebService(Cm));  //kts
+
+
+                //Application.Run(new XcustBlanketHeader(Cm));
+
+                //Application.Run(new XCustBlanketLine(Cm));
+                Application.Run(new XCustGlLedger(Cm));
+
+                //Application.Run(new XCustUomMstWebService(Cm));  //kts
+                //Application.Run(new XCustGlCodeCombinationWebService(Cm));
+                //Application.Run(new XCustLocationsWebService(Cm));
+
+
+>>>>>>> 8f4808e1af3626ae1ad7025a03a7ffe3530fc724
             }
 
 

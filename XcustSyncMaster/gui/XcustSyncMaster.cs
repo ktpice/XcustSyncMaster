@@ -287,6 +287,7 @@ namespace XcustSyncMaster
                 cVS.setXcustValueTbl(lv1, this, pB1);
             }
         }
+
         private void txtFileName_Leave(object sender, EventArgs e)
         {
             //throw new NotImplementedException();

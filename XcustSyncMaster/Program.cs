@@ -247,9 +247,6 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustUomMstWebService(Cm));  //kts
                 //Application.Run(new XCustGlCodeCombinationWebService(Cm));
                 //Application.Run(new XCustLocationsWebService(Cm));
-
-
-
             }
             */
 

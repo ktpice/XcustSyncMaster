@@ -43,5 +43,6 @@ namespace XcustSyncMaster
         public String TAX_RATE = "";
         public String ASSET_CATEGORY_CODE = "";
         public String ACCOUNT_CODE_COMBINATION_ID = "";
+        public String TAX_CODE = "";
     }
 }

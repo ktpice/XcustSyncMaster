@@ -59,15 +59,20 @@ namespace XcustSyncMaster
             xCITEM.TAX_RATE = "TAX_RATE";
             xCITEM.ASSET_CATEGORY_CODE = "ASSET_CATEGORY_CODE";
             xCITEM.ACCOUNT_CODE_COMBINATION_ID = "ACCOUNT_CODE_COMBINATION_ID";
+            xCITEM.TAX_CODE = "TAX_CODE";
 
             xCITEM.table = "xcust_item_mst_tbl";
         }
-        public Boolean selectDupPk(String Org_id, String item_id)
+        public Boolean selectDupPk(String Org_id, String item_id, String last_upd)
         {
             String sql = "";
             Boolean chk = false;
             DataTable dt = new DataTable();
-            sql = "Select count(1) as cnt From " + xCITEM.table + " Where " + xCITEM.ORGANIZATION_ID + "='" + Org_id + "' and " + xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "'";
+            DateTime dat = Convert.ToDateTime(last_upd);
+            sql = "Select count(1) as cnt From " + xCITEM.table + " Where " + xCITEM.ORGANIZATION_ID + "='" + Org_id + "' and " + 
+                                                                            xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "' and " +
+                                                                            xCITEM.LAST_UPDATE_DATE + "<'" + dat +
+                                                                            "'";
             dt = conn.selectData(sql, "kfc_po");
             if (dt.Rows.Count >= 1)
             {
@@ -75,18 +80,24 @@ namespace XcustSyncMaster
             }
             return chk;
         }
-        public void deletexCItem(String Org_id, String item_id)
+        public void deletexCItem(String Org_id, String item_id, String last_upd)
         {
-            String sql = "Delete From " + xCITEM.table + " Where " + xCITEM.ORGANIZATION_ID + "='" + Org_id + "' and " + xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "'";
+            DateTime dat = Convert.ToDateTime(last_upd);
+            String sql = "Delete From " + xCITEM.table + " Where " + xCITEM.ORGANIZATION_ID + "='" + Org_id + "' and " + 
+                                                                     xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "' and " +
+                                                                     xCITEM.LAST_UPDATE_DATE + "<'" + dat +
+                                                                     "'";
             conn.ExecuteNonQuery(sql, "kfc_po");
         }
         public String insertxCItemMst(XcustItemMstTbl p)
         {
             String sql = "", chk = "";
-            if (selectDupPk(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID))
+            
+            if (selectDupPk(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID,p.LAST_UPDATE_DATE))
             {
-                deletexCItem(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID);
+                deletexCItem(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID,p.LAST_UPDATE_DATE);
             }
+            
             chk = insert(p);
             return chk;
         }
@@ -138,6 +149,7 @@ namespace XcustSyncMaster
                                                         "," + xCITEM.TAX_RATE +
                                                         "," + xCITEM.ASSET_CATEGORY_CODE +
                                                         "," + xCITEM.ACCOUNT_CODE_COMBINATION_ID +
+                                                        "," + xCITEM.TAX_CODE +
                     ") " +
                     "Values('"  + decimal.Parse(p.ORGANIZATION_ID) +
                              "','" + decimal.Parse(p.INVENTORY_ITEM_ID) + 
@@ -174,6 +186,7 @@ namespace XcustSyncMaster
                              "','" + p.TAX_RATE +
                              "','" + p.ASSET_CATEGORY_CODE +
                              "','" + p.ACCOUNT_CODE_COMBINATION_ID +
+                             "','" + p.TAX_CODE +
                              "'" +
                              ") ";
                 //MessageBox.Show(sql);

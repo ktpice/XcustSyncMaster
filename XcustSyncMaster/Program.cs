@@ -249,9 +249,10 @@ namespace XcustSyncMaster
                 //Application.Run(new XCustLocationsWebService(Cm));
             }
             */
+
             //Application.Run(new XCustUomConvertMstWebService(Cm));
-            Application.Run(new XCustItemMstWebService(Cm));
-            //Application.Run(new XcustSyncMaster(Cm));
+            //Application.Run(new XCustItemMstWebService(Cm));
+            Application.Run(new XcustSyncMaster(Cm));
             //Application.Run(new XcustValueSet(Cm));
         }
     }

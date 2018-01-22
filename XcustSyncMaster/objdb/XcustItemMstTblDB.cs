@@ -63,16 +63,14 @@ namespace XcustSyncMaster
 
             xCITEM.table = "xcust_item_mst_tbl";
         }
-        public Boolean selectDupPk(String Org_id, String item_id, String last_upd)
+        public Boolean selectDupPk(String Org_id, String item_id)
         {
             String sql = "";
             Boolean chk = false;
             DataTable dt = new DataTable();
-            DateTime dat = Convert.ToDateTime(last_upd);
+            //DateTime dat = Convert.ToDateTime(last_upd);
             sql = "Select count(1) as cnt From " + xCITEM.table + " Where " + xCITEM.ORGANIZATION_ID + "='" + Org_id + "' and " + 
-                                                                            xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "' and " +
-                                                                            xCITEM.LAST_UPDATE_DATE + "<'" + dat +
-                                                                            "'";
+                                                                            xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "'";
             dt = conn.selectData(sql, "kfc_po");
             if (dt.Rows.Count >= 1)
             {
@@ -80,22 +78,20 @@ namespace XcustSyncMaster
             }
             return chk;
         }
-        public void deletexCItem(String Org_id, String item_id, String last_upd)
+        public void deletexCItem(String Org_id, String item_id)
         {
-            DateTime dat = Convert.ToDateTime(last_upd);
+            //DateTime dat = Convert.ToDateTime(last_upd);
             String sql = "Delete From " + xCITEM.table + " Where " + xCITEM.ORGANIZATION_ID + "='" + Org_id + "' and " + 
-                                                                     xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "' and " +
-                                                                     xCITEM.LAST_UPDATE_DATE + "<'" + dat +
-                                                                     "'";
+                                                                     xCITEM.INVENTORY_ITEM_ID + "='" + item_id + "'";
             conn.ExecuteNonQuery(sql, "kfc_po");
         }
         public String insertxCItemMst(XcustItemMstTbl p)
         {
             String sql = "", chk = "";
             
-            if (selectDupPk(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID,p.LAST_UPDATE_DATE))
+            if (selectDupPk(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID))
             {
-                deletexCItem(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID,p.LAST_UPDATE_DATE);
+                deletexCItem(p.ORGANIZATION_ID, p.INVENTORY_ITEM_ID);
             }
             
             chk = insert(p);

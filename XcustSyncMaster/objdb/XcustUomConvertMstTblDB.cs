@@ -55,12 +55,12 @@ namespace XcustSyncMaster
         public String insertxCUomConvertMst(XcustUomConvertMstTbl p)
         {
             String sql = "", chk = "";
-            /*
+            
             if (selectDupPk(p.CONVERSION_ID))
             {
                 deletexCItem(p.CONVERSION_ID);
             }
-            */
+            
             chk = insert(p);
             return chk;
         }

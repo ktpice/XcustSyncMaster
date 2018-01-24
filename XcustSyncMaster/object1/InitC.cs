@@ -11,6 +11,8 @@ namespace XcustSyncMaster
         public String usercloud = "";
         public String passcloud = "";
         public String Mastername = "";
+        public String p_update_from = "";
+        public String p_update_to = "";
 
         public String AutoValueSet = "";
         public String AutoItemMaster = "";  //kts

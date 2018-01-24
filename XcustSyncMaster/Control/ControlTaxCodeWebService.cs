@@ -76,19 +76,19 @@ namespace XcustSyncMaster
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_from</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_to</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>"+ Cm.initC.usercloud +"</ v2:userID> " +
+                                "<v2:userID>"+ Cm.initC.usercloud +"</v2:userID> " +
                                 "<v2:password>"+ Cm.initC.passcloud +"</v2:password> " +
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
@@ -168,11 +168,11 @@ namespace XcustSyncMaster
                 XcustTaxCodeMstTbl item = new XcustTaxCodeMstTbl();
                 //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
                 //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.TAX_RATE_ID = data2[2].Trim();
-                item.TAX_RATE_CODE = data2[3].Trim().Replace("\"", "");
-                item.PERCENTAGE_RATE = data2[4].Trim().Equals("") ? "0" : data2[4].Trim();
-                item.TAX_REGIME_CODE = data2[5].Trim().Replace("\"", "");
-                item.REGIME_TYPE_FLAG = data2[6].Trim();
+                item.TAX_RATE_ID = data2[0].Trim();
+                item.TAX_RATE_CODE = data2[1].Trim().Replace("\"", "");
+                item.PERCENTAGE_RATE = data2[2].Trim().Equals("") ? "0" : data2[2].Trim();
+                item.TAX_REGIME_CODE = data2[3].Trim().Replace("\"", "");
+                item.REGIME_TYPE_FLAG = data2[4].Trim();
 
                 //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
 

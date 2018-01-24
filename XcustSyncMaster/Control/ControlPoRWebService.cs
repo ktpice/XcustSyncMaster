@@ -76,28 +76,28 @@ namespace XcustSyncMaster
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                     "<pub:name>p_cre_date_frm</pub:name> " +
                                     "<pub:values> " +
-                                        "<pub:item></pub:item> " +
+                                        "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                     "</pub:values>" +
                                 "</pub:item>" +
                                 "<pub:item>" +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed>" +
                                 "<pub:name>p_cre_date_to</pub:name>" +
                                 "<pub:values>" +
-                                "<pub:item></pub:item>" +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item>" +
                                 "</pub:values>" +
                                 "</pub:item> " +
                                 "<pub:item>" +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_date_frm</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_date_to</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +

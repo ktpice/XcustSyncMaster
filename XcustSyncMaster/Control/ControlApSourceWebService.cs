@@ -77,14 +77,14 @@ namespace XcustSyncMaster
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_from</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_to</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
@@ -169,10 +169,10 @@ namespace XcustSyncMaster
                 XcustApSourceMstTbl item = new XcustApSourceMstTbl();
                 //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
                 //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.LOOKUP_TYPE = data2[2].Trim();
-                item.LOOKUP_CODE = data2[3].Trim().Replace("\"", "");
-                item.MEANING = data2[4].Trim().Replace("\"", "");
-                item.ENABLED_FLAG = data2[5].Trim();
+                item.LOOKUP_TYPE = data2[0].Trim();
+                item.LOOKUP_CODE = data2[1].Trim().Replace("\"", "");
+                item.MEANING = data2[2].Trim().Replace("\"", "");
+                item.ENABLED_FLAG = data2[3].Trim();
 
                 //MessageBox.Show("LOOKUP_TYPE = " + item.LOOKUP_TYPE);
                 //MessageBox.Show("LOOKUP_CODE = " + item.LOOKUP_CODE);

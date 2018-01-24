@@ -75,32 +75,18 @@ namespace XcustSyncMaster
                                 "<v2:attributeTemplate>XCUST_BLANKET_AGREEMENT_REP</v2:attributeTemplate> " +
                                 "<v2:reportAbsolutePath>/Custom/XCUST_CUSTOM/XCUST_BLANKET_AGREEMENT_REP.xdo</v2:reportAbsolutePath> " +
                                 "<pub:parameterNameValues> " +
-                                "<pub:item> " +
-                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_cre_date_frm</pub:name> " +   //PARAMETER : p_cre_date_frm
-                                    "<pub:values> " +
-                                        "<pub:item></pub:item> " +
-                                    "</pub:values>" +
-                                "</pub:item>" +
                                 "<pub:item>" +
-                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed>" +
-                                    "<pub:name>p_cre_date_to</pub:name>" +   //PARAMETER : p_cre_date_to
+                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
+                                    "<pub:name>p_update_from</pub:name> " +   //PARAMETER : p_update_from
                                     "<pub:values>" +
-                                        "<pub:item></pub:item>" +
-                                    "</pub:values>" +
-                                "</pub:item> " +
-                                "<pub:item>" +
-                                    "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_update_date_frm</pub:name> " +   //PARAMETER : p_update_date_frm
-                                    "<pub:values> " +
-                                        "<pub:item></pub:item> " +
+                                        "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                     "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_update_date_to</pub:name> " +  //PARAMETER : p_update_date_to
-                                        "<pub:values> " +
-                                    "<pub:item></pub:item> " +
+                                    "<pub:name>p_update_to</pub:name> " +  //PARAMETER : p_update_to
+                                    "<pub:values> " +
+                                        "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                     "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +

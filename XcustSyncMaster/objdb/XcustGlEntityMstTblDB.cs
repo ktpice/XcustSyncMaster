@@ -96,7 +96,7 @@ namespace XcustSyncMaster
                     ") " +
 
                 "Values( " + p.REGISTRATION_ID + ",'" +
-                    p.BRANCH_NUMBER + "','" + p.REGISTERED_NAME + "','" +
+                    p.BRANCH_NUMBER + "','" + p.REGISTERED_NAME.Replace("|",",") + "','" +
                     p.REGISTRATION_NUMBER + "','" + p.ADDRESS_LINE_1 + "','" +
                     p.ADDRESS_LINE_2 + "','" + p.ADDRESS_LINE_3 + "','" +
                     p.TOWN_OR_CITY + "','" + p.REGION_2 + "','" +

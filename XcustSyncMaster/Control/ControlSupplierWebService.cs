@@ -76,19 +76,19 @@ namespace XcustSyncMaster
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_from</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_to</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>"+ Cm.initC.usercloud +"</ v2:userID> " +
+                                "<v2:userID>"+ Cm.initC.usercloud +"</v2:userID> " +
                                 "<v2:password>"+ Cm.initC.passcloud +"</v2:password> " +
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +

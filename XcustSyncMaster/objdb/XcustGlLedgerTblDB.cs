@@ -108,7 +108,7 @@ namespace XcustSyncMaster
                     b.OBJECT_VERSION_NUMBER + ",'" +
                     b.NAME + "','" +
                     b.SHORT_NAME + "','" +
-                    b.DESCRIPTION + "','" +
+                    b.DESCRIPTION.Replace("|",",") + "','" +
                     b.LEDGER_CATEGORY_CODE + "','" +
                     b.ALC_LEDGER_TYPE_CODE + "','" +
                     b.OBJECT_TYPE_CODE + "','" +

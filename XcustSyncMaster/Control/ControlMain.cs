@@ -134,6 +134,8 @@ namespace XcustSyncMaster
             initC.passcloud = iniFile.Read("passcloud");
 
             initC.Mastername = iniFile.Read("Mastername");
+            initC.p_update_from = iniFile.Read("p_update_from");
+            initC.p_update_to = iniFile.Read("p_update_to");
 
 
             initC.EmailPort = iniFile.Read("EmailPort");

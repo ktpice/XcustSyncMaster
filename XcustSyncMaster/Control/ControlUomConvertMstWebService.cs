@@ -55,7 +55,7 @@ namespace XcustSyncMaster
             XmlDocument soapEnvelopeXml = new XmlDocument();
             const Int32 BufferSize = 128;
             String[] filePO;
-            addListView("setXcustITEMTbl ", "Web Service", lv1, form1);
+            addListView("setXcustUOMConvertTbl ", "Web Service", lv1, form1);
             //filePO = Cm.getFileinFolder(Cm.initC.PathZip);
             //String text = System.IO.File.ReadAllText(filePO[0]);
             //byte[] byteArraytext = Encoding.UTF8.GetBytes(text);
@@ -73,16 +73,16 @@ namespace XcustSyncMaster
                                 "<pub:parameterNameValues> " +
                                 "<pub:item> " +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_update_from</pub:name> " +
+                                    "<pub:name>p_last_update_fr</pub:name> " +
                                     "<pub:values> " +
-                                        "<pub:item></pub:item> " +
+                                        "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                     "</pub:values>" +
                                 "</pub:item>" +
                                 "<pub:item>" +
                                     "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
-                                    "<pub:name>p_update_to</pub:name> " +
+                                    "<pub:name>p_last_update_to</pub:name> " +
                                     "<pub:values> " +
-                                        "<pub:item></pub:item> " +
+                                        "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                     "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
@@ -95,7 +95,7 @@ namespace XcustSyncMaster
 
             //byte[] byteArray = Encoding.UTF8.GetBytes(envelope);
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
-            addListView("setXcustITEMTbl Start", "Web Service", lv1, form1);
+            addListView("setXcustUOMConvertTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
             byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(Cm.initC.usercloud + ":" + Cm.initC.passcloud);
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
@@ -118,13 +118,13 @@ namespace XcustSyncMaster
             Stream dataStream = request1.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
-            addListView("setXcustITEMTbl Request", "Web Service", lv1, form1);
+            addListView("setXcustUOMConvertTbl Request", "Web Service", lv1, form1);
             // Get the response and process it; In this example, we simply print out the response XDocument doc;
             string actNumber = "";
             XDocument doc;
             using (WebResponse response = request1.GetResponse())
             {
-                addListView("setXcustITEMTbl Response", "Web Service", lv1, form1);
+                addListView("setXcustUOMConvertTbl Response", "Web Service", lv1, form1);
                 using (Stream stream = response.GetResponseStream())
                 {
 
@@ -146,7 +146,7 @@ namespace XcustSyncMaster
             }
             actNumber = actNumber.Trim();
             actNumber = actNumber.IndexOf("<reportContentType>") >= 0 ? actNumber.Substring(0, actNumber.IndexOf("<reportContentType>")) : actNumber;
-            addListView("setXcustITEMTbl Extract html", "Web Service", lv1, form1);
+            addListView("setXcustUOMConvertTbl Extract html", "Web Service", lv1, form1);
             byte[] data = Convert.FromBase64String(actNumber);
             string decodedString = Encoding.UTF8.GetString(data);
             //XElement html = XElement.Parse(decodedString);

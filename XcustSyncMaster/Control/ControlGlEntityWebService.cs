@@ -76,20 +76,20 @@ namespace XcustSyncMaster
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_from</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_from + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_to</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
                                 "<v2:userID>" + Cm.initC.usercloud + "</v2:userID> " +
-                                "<v2:password>" + Cm.initC.passcloud + "</ v2:password> " +
+                                "<v2:password>" + Cm.initC.passcloud + "</v2:password> " +
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
                                 "</soapenv:Envelope> ";
@@ -168,17 +168,17 @@ namespace XcustSyncMaster
                 XcustGlEntityMstTbl item = new XcustGlEntityMstTbl();
                 //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
                 //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.REGISTRATION_ID = data2[2].Trim();
-                item.BRANCH_NUMBER = data2[3].Trim().Replace("\"", "");
-                item.REGISTERED_NAME = data2[4].Trim().Replace("\"", "");
-                item.REGISTRATION_NUMBER = data2[5].Trim().Replace("\"", "");
-                item.ADDRESS_LINE_1 = data2[6].Trim().Replace("\"", "");
-                item.ADDRESS_LINE_2 = data2[7].Trim().Replace("\"", "");
-                item.ADDRESS_LINE_3 = data2[8].Trim().Replace("\"", "");
-                item.TOWN_OR_CITY = data2[9].Trim().Replace("\"", "");
-                item.REGION_2 = data2[10].Trim().Replace("\"", "");
-                item.POSTAL_CODE = data2[11].Trim().Replace("\"", "");
-                item.COUNTRY = data2[12].Trim().Replace("\"", "");
+                item.REGISTRATION_ID = data2[0].Trim();
+                item.BRANCH_NUMBER = data2[1].Trim().Replace("\"", "");
+                item.REGISTERED_NAME = data2[2].Trim().Replace("\"", "");
+                item.REGISTRATION_NUMBER = data2[3].Trim().Replace("\"", "");
+                item.ADDRESS_LINE_1 = data2[4].Trim().Replace("\"", "");
+                item.ADDRESS_LINE_2 = data2[5].Trim().Replace("\"", "");
+                item.ADDRESS_LINE_3 = data2[6].Trim().Replace("\"", "");
+                item.TOWN_OR_CITY = data2[7].Trim().Replace("\"", "");
+                item.REGION_2 = data2[8].Trim().Replace("\"", "");
+                item.POSTAL_CODE = data2[9].Trim().Replace("\"", "");
+                item.COUNTRY = data2[10].Trim().Replace("\"", "");
 
                 //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
 

@@ -25,6 +25,7 @@ namespace XcustSyncMaster
         Color cTxtL, cTxtE, cForm;
 
         ControlMain Cm;
+        ControlAPInvoiceWebService cApInvWS;
         ControlApSourceWebService cApWS;
         ControlBlanketHeader cBlKH;
         ControlBlanketLine cBlKL;
@@ -64,6 +65,7 @@ namespace XcustSyncMaster
         }
         private void initConfig()
         {
+            cApInvWS = new ControlAPInvoiceWebService(Cm);
             cApWS = new ControlApSourceWebService(Cm);
             cBlKH = new ControlBlanketHeader(Cm);
             cBlKL = new ControlBlanketLine(Cm);
@@ -173,7 +175,12 @@ namespace XcustSyncMaster
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            if (Cm.initC.Mastername == "XCustApSourceWebService")
+            
+            if (Cm.initC.Mastername == "XCustAPInvoiceWebService")
+            {
+                cApInvWS.setXcustAPTbl(lv1, this, pB1);
+            }
+            else if (Cm.initC.Mastername == "XCustApSourceWebService")
             {
                 cApWS.setXcustApTbl(lv1, this, pB1);
             }
@@ -263,6 +270,7 @@ namespace XcustSyncMaster
             }
             else
             {
+                cApInvWS.setXcustAPTbl(lv1, this, pB1);
                 cApWS.setXcustApTbl(lv1, this, pB1);
                 cBlKH.setXcustBlkHTbl(lv1, this, pB1);
                 cBlKL.setXcustBlkLTbl(lv1, this, pB1);

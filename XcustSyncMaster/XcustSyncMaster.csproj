@@ -52,6 +52,7 @@
     <Compile Include="Control\AnimationManager.cs" />
     <Compile Include="Control\Animations.cs" />
     <Compile Include="Control\ColorScheme.cs" />
+    <Compile Include="Control\ControlAPInvoiceWebService.cs" />
     <Compile Include="Control\ControlBlanketHeader.cs" />
     <Compile Include="Control\ControlApSourceWebService.cs" />
     <Compile Include="Control\ControlCatMappingMstWebService.cs" />
@@ -124,6 +125,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\XCustAPInvoiceWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\XCustBlanketHeader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +198,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="objdb\ConnectDB.cs" />
+    <Compile Include="objdb\XcustAPInvoiceMstTblDB.cs" />
     <Compile Include="objdb\XcustBlanketHeaderTblDB.cs" />
     <Compile Include="objdb\XcustApSourceMstTblDB.cs" />
     <Compile Include="objdb\XcustCatMappingMstTblDB.cs" />
@@ -220,6 +225,7 @@
     <Compile Include="object1\InitC.cs" />
     <Compile Include="object1\ListViewColumnSorter.cs" />
     <Compile Include="object1\Persistent.cs" />
+    <Compile Include="object1\XcustAPInvoiceMstTbl.cs" />
     <Compile Include="object1\XcustBlanketHeaderTbl.cs" />
     <Compile Include="object1\XcustApSourceMstTbl.cs" />
     <Compile Include="object1\XcustCatMappingMstTbl.cs" />

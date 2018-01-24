@@ -76,20 +76,20 @@ namespace XcustSyncMaster
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_from</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>"+ Cm.initC.p_update_from +"</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "<pub:item> " +
                                 "<pub:multiValuesAllowed>False</pub:multiValuesAllowed> " +
                                 "<pub:name>p_update_to</pub:name> " +
                                 "<pub:values> " +
-                                "<pub:item></pub:item> " +
+                                "<pub:item>" + Cm.initC.p_update_to + "</pub:item> " +
                                 "</pub:values> " +
                                 "</pub:item> " +
                                 "</pub:parameterNameValues>  " +
                                 "</v2:reportRequest> " +
-                                "<v2:userID>icetech@iceconsulting.co.th</v2:userID> " +
-                                "<v2:password>icetech@2017</v2:password> " +
+                                "<v2:userID>" + Cm.initC.usercloud + "</v2:userID> " +
+                                "<v2:password>" + Cm.initC.passcloud + "</v2:password> " +
                                 "</v2:runReport> " +
                                 "</soapenv:Body> " +
                                 "</soapenv:Envelope> ";
@@ -98,7 +98,7 @@ namespace XcustSyncMaster
             byte[] byteArray = Encoding.UTF8.GetBytes(uri);
             addListView("setXcustAPInvoiceMstTbl Start", "Web Service", lv1, form1);
             // Construct the base 64 encoded string used as credentials for the service call
-            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes("icetech@iceconsulting.co.th" + ":" + "icetech@2017");
+            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(Cm.initC.usercloud + ":" + Cm.initC.passcloud);
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
 
             // Create HttpWebRequest connection to the service
@@ -168,12 +168,12 @@ namespace XcustSyncMaster
                 XcustAPInvoiceMstTbl item = new XcustAPInvoiceMstTbl();
                 //item.LAST_UPDATE_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[0].Trim());
                 //item.CREATION_DATE = xCPoRDB.xCPoR.dateTimeYearToDB1(data2[1].Trim());
-                item.INVOICE_ID = data2[2].Trim().Equals("") ? "0" : data2[2].Trim();
-                item.INVOICE_NUM = data2[3].Trim().Replace("\"", "").Replace("||", ",");
-                item.VENDOR_ID = data2[4].Trim().Equals("") ? "0" : data2[4].Trim();
-                item.ORG_ID = data2[5].Trim().Equals("") ? "0" : data2[5].Trim();
-                item.LAST_UPDATE_DATE = xCAPDB.xCAP.dateTimeYearToDB1(data2[6].Trim());
-                item.CREATION_DATE = xCAPDB.xCAP.dateTimeYearToDB1(data2[7].Trim());
+                item.INVOICE_ID = data2[0].Trim().Equals("") ? "0" : data2[0].Trim();
+                item.INVOICE_NUM = data2[1].Trim().Replace("\"", "").Replace("||", ",");
+                item.VENDOR_ID = data2[2].Trim().Equals("") ? "0" : data2[2].Trim();
+                item.ORG_ID = data2[3].Trim().Equals("") ? "0" : data2[3].Trim();
+                item.LAST_UPDATE_DATE = xCAPDB.xCAP.dateTimeYearToDB1(data2[4].Trim());
+                item.CREATION_DATE = xCAPDB.xCAP.dateTimeYearToDB1(data2[5].Trim());
 
                 //int VALUE_SET_ID = 0, VALUE_SET_CODE = 1, VALUE_ID = 2, VALUE = 3, DESCRIPTION = 4, ENABLED_FLAG = 5, LAST_UPDATE_DATE = 6, CREATION_DATE = 7;
 

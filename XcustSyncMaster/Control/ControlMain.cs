@@ -41,6 +41,7 @@ namespace XcustSyncMaster
         public String xcustLocatormstwebservice_run = "";  //kts
         public String xcustCSTPeriodwebservice_run = "";  //kts
         public String xcustCatMappingwebservice_run = "";  //kts
+        public String xcustAPInvoiceWebService_run = "";
 
 
 

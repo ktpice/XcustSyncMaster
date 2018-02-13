@@ -200,6 +200,7 @@ namespace XcustSyncMaster
                 item.TAX_RATE = data2[32].Trim().Replace("\"", "");
                 item.ASSET_CATEGORY_CODE = data2[33].Trim().Replace("\"", "");
                 item.ACCOUNT_CODE_COMBINATION_ID = data2[34].Trim().Replace("\"", "");
+                item.TAX_CODE = data2[35].Trim().Replace("\"", "");
                 //MessageBox.Show("111"+item.CREATION_DATE);
                 xCItemDB.insertxCItemMst(item);
             }

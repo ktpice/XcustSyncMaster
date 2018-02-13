@@ -113,14 +113,14 @@ namespace XcustSyncMaster
                                  p.LOCATION_DETAILS_ID + ",'" + 
                                  p.EFFECTIVE_START_DATE + "','" +
                                  p.EFFECTIVE_END_DATE + "','" + 
-                                 p.LOCATION_CODE + "','" + 
-                                 p.LOCATION_NAME + "','" +
+                                 p.LOCATION_CODE.Replace("|",",") + "','" + 
+                                 p.LOCATION_NAME.Replace("|", ",") + "','" +
                                  p.DESCRIPTION + "','" +
                                  p.STYLE + "','" +
-                                 p.ADDRESS_LINE_1 + "','" +
-                                 p.ADDRESS_LINE_2 + "','" +
-                                 p.ADDRESS_LINE_3 + "','" +
-                                 p.ADDRESS_LINE_4 + "','" +
+                                 p.ADDRESS_LINE_1.Replace("|", ",") + "','" +
+                                 p.ADDRESS_LINE_2.Replace("|", ",") + "','" +
+                                 p.ADDRESS_LINE_3.Replace("|", ",") + "','" +
+                                 p.ADDRESS_LINE_4.Replace("|", ",") + "','" +
                                  p.BUILDING + "','" +
                                  p.FLOOR_NUMBER + "','" +
                                  p.COUNTRY + "','" +
@@ -128,7 +128,6 @@ namespace XcustSyncMaster
                                  p.TIMEZONE_CODE + "','" +
                                  p.CREATION_DATE + "','" +
                                  p.LAST_UPDATE_DATE + "'" +
-      
 
                     ") ";
 

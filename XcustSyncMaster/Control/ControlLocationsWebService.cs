@@ -172,7 +172,7 @@ namespace XcustSyncMaster
                 item.LOCATION_DETAILS_ID = data2[1].Trim();
                 item.EFFECTIVE_START_DATE = xCGlCDB.xCGlC.dateTimeYearToDB1(data2[2].Trim());
                 item.EFFECTIVE_END_DATE = xCGlCDB.xCGlC.dateTimeYearToDB1(data2[3].Trim());
-                item.LOCATION_CODE = data2[4].Trim().Replace("\"", "");
+                item.LOCATION_CODE = data2[19].Trim().Replace("\"", "");
                 item.LOCATION_NAME = data2[5].Trim().Replace("\"", "");
                 item.DESCRIPTION = data2[6].Trim().Replace("\"", "");
                 item.STYLE = data2[7].Trim().Replace("\"", "");

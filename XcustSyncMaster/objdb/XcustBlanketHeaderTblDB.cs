@@ -69,9 +69,9 @@ namespace XcustSyncMaster
         public String insertxCBlKH(XcustBlanketHeaderTbl b)
         {
             String sql = "", chk = "";
-            if (selectDupPk(b.POCUMENT_BU, b.AGREEMENT_NUMBER, b.PO_HEADER_ID))
+            if (selectDupPk(b.POCUMENT_BU.Replace("|", ","), b.AGREEMENT_NUMBER, b.PO_HEADER_ID))
             {
-                deletexCBlKH(b.POCUMENT_BU, b.AGREEMENT_NUMBER, b.PO_HEADER_ID);
+                deletexCBlKH(b.POCUMENT_BU.Replace("|", ","), b.AGREEMENT_NUMBER, b.PO_HEADER_ID);
             }
             chk = insert(b);
             return chk;
@@ -107,21 +107,21 @@ namespace XcustSyncMaster
                     xCBlKH.PO_HEADER_ID + " " +
 
                     ") " +
-                    "Values('" + b.POCUMENT_BU + "','" + 
+                    "Values('" + b.POCUMENT_BU.Replace("|", ",") + "','" + 
                     b.AGREEMENT_NUMBER + "','" + 
                     b.STATUS + "','" +
-                    b.BUYER + "','" + 
-                    b.SUPPLIER + "','" + 
+                    b.BUYER.Replace("|", ",") + "','" + 
+                    b.SUPPLIER.Replace("|", ",") + "','" + 
                     b.SUPPLIER_SITE + "','" +
                     b.SUPPLIER_CODE + "','" + 
-                    b.COMUNICATION_METHOD + "','" + 
-                    b.E_MAIL + "','" +
+                    b.COMUNICATION_METHOD.Replace("|", ",") + "','" + 
+                    b.E_MAIL.Replace("|", ",") + "','" +
                     b.START_DATE + "','" + 
                     b.END_DATE + "'," + 
                     b.AGREEMENT_AMT + "," +
                     b.MIN_RELEASE_AMT + "," + 
                     b.RELEASE_AMT + ",'" + 
-                    b.DESCRIPTION + "','" +
+                    b.DESCRIPTION.Replace("|", ",") + "','" +
                     b.LAST_UPDATE_DATE + "','" + 
                     b.CREATION_DATE + "'," + 
                     b.PO_HEADER_ID + "" +

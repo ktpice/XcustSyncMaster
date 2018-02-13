@@ -139,7 +139,7 @@ namespace XcustSyncMaster
                     "Values(" + b.LINE_NUMBER + "," +
                     b.ITEM_ID + ",'" +
                     b.ITEM_CODE + "','" +
-                    b.DESCRIPTION + "','" +
+                    b.DESCRIPTION.Replace("|", ",") + "','" +
                     b.UOM + "'," +
                     b.PRICE + "," +
                     b.RELEASE_AMT + ",'" +

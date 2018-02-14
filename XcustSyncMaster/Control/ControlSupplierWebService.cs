@@ -102,7 +102,7 @@ namespace XcustSyncMaster
             string credentials = System.Convert.ToBase64String(toEncodeAsBytes);
 
             // Create HttpWebRequest connection to the service
-            HttpWebRequest request1 = (HttpWebRequest)WebRequest.Create("https://eglj.fa.us2.oraclecloud.com/xmlpserver/services/PublicReportService");
+            HttpWebRequest request1 = (HttpWebRequest)WebRequest.Create("https://eglj-test.fa.us2.oraclecloud.com/xmlpserver/services/PublicReportService");
 
             // Configure the request content type to be xml, HTTP method to be POST, and set the content length
             request1.Method = "POST";
@@ -113,7 +113,7 @@ namespace XcustSyncMaster
             request1.Headers.Add("Authorization", "Basic " + credentials);
 
             // Set the SOAP action to be invoked; while the call works without this, the value is expected to be set based as per standards
-            request1.Headers.Add("SOAPAction", "https://eglj.fa.us2.oraclecloud.com/xmlpserver/services/PublicReportService");
+            request1.Headers.Add("SOAPAction", "https://eglj-test.fa.us2.oraclecloud.com/xmlpserver/services/PublicReportService");
 
             // Write the xml payload to the request
             Stream dataStream = request1.GetRequestStream();

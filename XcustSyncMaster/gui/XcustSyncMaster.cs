@@ -236,10 +236,6 @@ namespace XcustSyncMaster
             {
                 cLcWS.setXcustGlCTbl(lv1, this, pB1);
             }
-            else if (Cm.initC.Mastername == "XCustPoRWebService")
-            {
-                cPoRWS.setXcustPRTbl(lv1, this, pB1);
-            }
             else if (Cm.initC.Mastername == "XCustSubInvMstWebService")
             {
                 cISubWS.setXcustSUBTbl(lv1, this, pB1);
@@ -285,7 +281,6 @@ namespace XcustSyncMaster
                 cLCT.setXcustLocatorTbl(lv1, this, pB1);
                 cItemWS.setXcustITEMTbl(lv1, this, pB1);
                 cLcWS.setXcustGlCTbl(lv1, this, pB1);
-                cPoRWS.setXcustPRTbl(lv1, this, pB1);
                 cISubWS.setXcustSUBTbl(lv1, this, pB1);
                 cSupSWS.setXcustSupTbl(lv1, this, pB1);
                 cSupWS.setXcustSupTbl(lv1, this, pB1);

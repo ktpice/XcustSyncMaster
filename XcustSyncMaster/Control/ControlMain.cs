@@ -42,6 +42,7 @@ namespace XcustSyncMaster
         public String xcustCSTPeriodwebservice_run = "";  //kts
         public String xcustCatMappingwebservice_run = "";  //kts
         public String xcustAPInvoiceWebService_run = "";
+        public String xcustOrgmstwebservice_run = ""; //ktp
 
 
 
@@ -82,6 +83,7 @@ namespace XcustSyncMaster
                     xcustLocatormstwebservice_run = aaa[0].Equals("xcustLocatormstwebservice_run") ? aaa[1] : ""; //kts
                     xcustCSTPeriodwebservice_run = aaa[0].Equals("xcustCSTPeriodwebservice_run") ? aaa[1] : ""; //kts
                     xcustCatMappingwebservice_run = aaa[0].Equals("xcustCatMappingwebservice_run") ? aaa[1] : ""; //kts
+                    xcustOrgmstwebservice_run = aaa[0].Equals("xcustOrgmstwebservice_run") ? aaa[1] : ""; //ktp
                 }
             }
         }
@@ -135,6 +137,10 @@ namespace XcustSyncMaster
             initC.passcloud = iniFile.Read("passcloud");
 
             initC.Mastername = iniFile.Read("Mastername");
+
+           // MessageBox.Show((Environment.CurrentDirectory + "\\" + Application.ProductName + ".ini").ToString());
+           // MessageBox.Show(iniFile.Read("Mastername").ToString());
+
             initC.p_update_from = iniFile.Read("p_update_from");
             initC.p_update_to = iniFile.Read("p_update_to");
 
@@ -176,6 +182,7 @@ namespace XcustSyncMaster
             initC.AutoBlanketHeader = iniFile.Read("AutoBlanketHeader");  //ktp
             initC.AutoBlanketLine = iniFile.Read("AutoBlanketLine");  //ktp
             initC.AutoGlLedger = iniFile.Read("AutoGlLedger");  //ktp
+            initC.AutoOrgMaster = iniFile.Read("AutoOrgMaster"); //ktp
 
 
 

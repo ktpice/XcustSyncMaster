@@ -37,6 +37,8 @@ namespace XcustSyncMaster
         public String AutoBlanketLine = "";  //ktp
         public String AutoGlLedger = ""; //ktp
 
+        public String AutoOrgMaster = "";  //ktp
+
         public String EmailPort = "";
         public String EmailCharset = "";        //orc master
         public String EmailUsername = "";

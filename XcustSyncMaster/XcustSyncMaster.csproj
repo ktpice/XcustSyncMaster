@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -60,6 +76,7 @@
     <Compile Include="Control\ControlLocatorMstWebService.cs" />
     <Compile Include="Control\ControlCurrencyMstWebService.cs" />
     <Compile Include="Control\ControlBuMstWebService.cs" />
+    <Compile Include="Control\ControlOrgMstWebService.cs" />
     <Compile Include="Control\ControlUomConvertMstWebService.cs" />
     <Compile Include="Control\ControlCSTPeriodMstWebService.cs" />
     <Compile Include="Control\ControlValueSet.cs" />
@@ -152,6 +169,9 @@
     <Compile Include="gui\XCustGlCodeCombinationWebService.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\XCustOrgMstWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\XCustSupplierSiteWebService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +230,7 @@
     <Compile Include="objdb\XcustGlCodeCombinationMstTblDB.cs" />
     <Compile Include="objdb\XcustGlPeriodMstTblDB.cs" />
     <Compile Include="objdb\XcustItemMstTblDB.cs" />
+    <Compile Include="objdb\XcustOrgMstTblDB.cs" />
     <Compile Include="objdb\XcustPoReceiptTblDB.cs" />
     <Compile Include="objdb\XcustCurrencyMstTblDB.cs" />
     <Compile Include="objdb\XcustSupplierSiteMstTblDB.cs" />
@@ -237,6 +258,7 @@
     <Compile Include="object1\XcustGlCodeCombinationMstTbl.cs" />
     <Compile Include="object1\XcustGlPeriodMstTbl.cs" />
     <Compile Include="object1\XcustItemMstTbl.cs" />
+    <Compile Include="object1\XcustOrgMstTbl.cs" />
     <Compile Include="object1\XcustPoReceiptTbl.cs" />
     <Compile Include="object1\XcustCurrencyMstTbl.cs" />
     <Compile Include="object1\XcustSupplierSiteMstTbl.cs" />
@@ -284,6 +306,17 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

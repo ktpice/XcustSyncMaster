@@ -25,20 +25,29 @@ namespace XcustSyncMaster
 
             MaterialListView lv1;
             MaterialProgressBar pB1;
-            Form from1;
+            Form form1;
 
             string[] args = Environment.GetCommandLineArgs();
+            //args = args == null ? Environment.GetCommandLineArgs():args;
+
+
 
             ControlMain Cm = new ControlMain();
             lv1 = new MaterialListView();
             pB1 = new MaterialProgressBar();
-            from1 = new Form();
+            form1 = new Form();
 
 
             Cm.args = args;
             Cm.setAgrument();
+           // Cm.GetConfig();
 
-            /* ControlApSourceWebService cApWS = new ControlApSourceWebService(Cm);
+           // MessageBox.Show("Mastername ="  + Cm.initC.Mastername);
+
+            // MessageBox.Show("args =" + args.ToString() + "," + args.Length, "");
+
+             ControlAPInvoiceWebService  cApInvWS = new ControlAPInvoiceWebService(Cm);
+             ControlApSourceWebService cApWS = new ControlApSourceWebService(Cm);
              ControlBlanketHeader cBlKH = new ControlBlanketHeader(Cm);
              ControlBlanketLine cBlKL = new ControlBlanketLine(Cm);
              ControlBuMstWebService cIBuWS = new ControlBuMstWebService(Cm);
@@ -52,7 +61,7 @@ namespace XcustSyncMaster
              ControlLocatorMstWebService cLCT = new ControlLocatorMstWebService(Cm);
              ControlItemMstWebService cItemWS = new ControlItemMstWebService(Cm);
              ControlLocationsWebService cLcWS = new ControlLocationsWebService(Cm);
-             ControlPoRWebService cPoRWS = new ControlPoRWebService(Cm);
+            // ControlPoRWebService cPoRWS = new ControlPoRWebService(Cm);
              ControlSubInvMstWebService cISubWS = new ControlSubInvMstWebService(Cm);
              ControlSupplierSiteWebService cSupSWS = new ControlSupplierSiteWebService(Cm);
              ControlSupplierWebService cSupWS = new ControlSupplierWebService(Cm);
@@ -60,124 +69,9 @@ namespace XcustSyncMaster
              ControlUomConvertMstWebService cIUomConvWS = new ControlUomConvertMstWebService(Cm);
              ControlUomMstWebService cIUomWS = new ControlUomMstWebService(Cm);
              ControlValueSet cVS = new ControlValueSet(Cm);
+             ControlOrgMstWebService cIOrgWS = new ControlOrgMstWebService(Cm);
 
 
-
-
-             if (Cm.initC.Mastername == "XCustApSourceWebService")
-             {
-                 cApWS.setXcustApTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustBlanketHeader")
-             {
-                 cBlKH.setXcustBlkHTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustBlanketLine")
-             {
-                 cBlKL.setXcustBlkLTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustBuMstWebService")
-             {
-                 cIBuWS.setXcustBUTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustCatMappingMstWebService")
-             {
-                 cICatmWS.setXcustCatMappingTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustCSTPeriodMstWebService")
-             {
-                 cICSTPeriodWS.setXcustCSTPeriodTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustCurrencyMstWebService")
-             {
-                 cICurWS.setXcustCURTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustGlCodeCombinationWebService")
-             {
-                 cGlCWS.setXcustGlCTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustGlEntityWebService")
-             {
-                 cGlWS.setXcustGlTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustGlLedger")
-             {
-                 cGLG.setXcustGlLedgerTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustGlPeriodWebService")
-             {
-                 cGlPWS.setXcustGlPTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XcustItemLocator")
-             {
-                 cLCT.setXcustLocatorTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustItemMstWebService")
-             {
-                 cItemWS.setXcustITEMTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustLocationsWebService")
-             {
-                 cLcWS.setXcustGlCTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustPoRWebService")
-             {
-                 cPoRWS.setXcustPRTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustSubInvMstWebService")
-             {
-                 cISubWS.setXcustSUBTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustSupplierSiteWebService")
-             {
-                 cSupSWS.setXcustSupTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustSupplierWebService")
-             {
-                 cSupWS.setXcustSupTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustTaxCodeWebService")
-             {
-                 cTxCWS.setXcustTxCTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustUomConvertMstWebService")
-             {
-                 cIUomConvWS.setXcustUOMConvertTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XCustUomMstWebService")
-             {
-                 cIUomWS.setXcustUOMTbl(lv1, from1, pB1);
-             }
-             else if (Cm.initC.Mastername == "XcustValueSet")
-             {
-                 cVS.setXcustValueTbl(lv1, from1, pB1);
-             }
-             else
-             {
-                 cApWS.setXcustApTbl(lv1, from1, pB1);
-                 cBlKH.setXcustBlkHTbl(lv1, from1, pB1);
-                 cBlKL.setXcustBlkLTbl(lv1, from1, pB1);
-                 cIBuWS.setXcustBUTbl(lv1, from1, pB1);
-                 cICatmWS.setXcustCatMappingTbl(lv1, from1, pB1);
-                 cICSTPeriodWS.setXcustCSTPeriodTbl(lv1, from1, pB1);
-                 cICurWS.setXcustCURTbl(lv1, from1, pB1);
-                 cGlCWS.setXcustGlCTbl(lv1, from1, pB1);
-                 cGlWS.setXcustGlTbl(lv1, from1, pB1);
-                 cGLG.setXcustGlLedgerTbl(lv1, from1, pB1);
-                 cGlPWS.setXcustGlPTbl(lv1, from1, pB1);
-                 cLCT.setXcustLocatorTbl(lv1, from1, pB1);
-                 cItemWS.setXcustITEMTbl(lv1, from1, pB1);
-                 cLcWS.setXcustGlCTbl(lv1, from1, pB1);
-                 cPoRWS.setXcustPRTbl(lv1, from1, pB1);
-                 cISubWS.setXcustSUBTbl(lv1, from1, pB1);
-                 cSupSWS.setXcustSupTbl(lv1, from1, pB1);
-                 cSupWS.setXcustSupTbl(lv1, from1, pB1);
-                 cTxCWS.setXcustTxCTbl(lv1, from1, pB1);
-                 cIUomConvWS.setXcustUOMConvertTbl(lv1, from1, pB1);
-                 cIUomWS.setXcustUOMTbl(lv1, from1, pB1);
-                 cVS.setXcustValueTbl(lv1, from1, pB1);
-             }
-             */
 
 
             //MessageBox.Show("args "+ args.Length, "");
@@ -252,8 +146,139 @@ namespace XcustSyncMaster
 
             //Application.Run(new XCustUomConvertMstWebService(Cm));
             //Application.Run(new XCustItemMstWebService(Cm));
-            Application.Run(new XcustSyncMaster(Cm));
+            //Application.Run(new XcustSyncMaster(Cm));
             //Application.Run(new XcustValueSet(Cm));
+
+            if (args.Length >= 2 && args[1].ToString().ToLower() == "schedule")
+            {
+                //MessageBox.Show("args =" + args[1].ToString() + "," + args.Length + "," + Cm.initC.Mastername, "");
+
+                if (Cm.initC.Mastername == "XCustAPInvoiceWebService")
+                {
+                    cApInvWS.setXcustAPTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustApSourceWebService")
+                {
+                    cApWS.setXcustApTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustBlanketHeader")
+                {
+                    cBlKH.setXcustBlkHTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustBlanketLine")
+                {
+                    cBlKL.setXcustBlkLTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustBuMstWebService")
+                {
+                    cIBuWS.setXcustBUTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustCatMappingMstWebService")
+                {
+                    cICatmWS.setXcustCatMappingTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustCSTPeriodMstWebService")
+                {
+                    cICSTPeriodWS.setXcustCSTPeriodTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustCurrencyMstWebService")
+                {
+                    cICurWS.setXcustCURTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustGlCodeCombinationWebService")
+                {
+                    cGlCWS.setXcustGlCTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustGlEntityWebService")
+                {
+                    cGlWS.setXcustGlTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustGlLedger")
+                {
+                    cGLG.setXcustGlLedgerTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustGlPeriodWebService")
+                {
+                    cGlPWS.setXcustGlPTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XcustItemLocator")
+                {
+                    cLCT.setXcustLocatorTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustItemMstWebService")
+                {
+                    cItemWS.setXcustITEMTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustLocationsWebService")
+                {
+                    cLcWS.setXcustGlCTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustSubInvMstWebService")
+                {
+                    cISubWS.setXcustSUBTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustSupplierSiteWebService")
+                {
+                    cSupSWS.setXcustSupTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustSupplierWebService")
+                {
+                    cSupWS.setXcustSupTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustTaxCodeWebService")
+                {
+                    cTxCWS.setXcustTxCTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustUomConvertMstWebService")
+                {
+                    cIUomConvWS.setXcustUOMConvertTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XCustUomMstWebService")
+                {
+                    cIUomWS.setXcustUOMTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XcustValueSet")
+                {
+                    cVS.setXcustValueTbl(lv1, form1, pB1);
+                }
+                else if (Cm.initC.Mastername == "XcustOrgMstWebService")
+                {
+                    //MessageBox.Show("XcustOrgMstWebService =" + args[1].ToString() + "," + args.Length, "");
+                    cIOrgWS.setXcustOrgMstTbl(lv1, form1, pB1);
+                }
+                else
+                {
+                    cApInvWS.setXcustAPTbl(lv1, form1, pB1);
+                    cApWS.setXcustApTbl(lv1, form1, pB1);
+                    cBlKH.setXcustBlkHTbl(lv1, form1, pB1);
+                    cBlKL.setXcustBlkLTbl(lv1, form1, pB1);
+                    cIBuWS.setXcustBUTbl(lv1, form1, pB1);
+                    cICatmWS.setXcustCatMappingTbl(lv1, form1, pB1);
+                    cICSTPeriodWS.setXcustCSTPeriodTbl(lv1, form1, pB1);
+                    cICurWS.setXcustCURTbl(lv1, form1, pB1);
+                    cGlCWS.setXcustGlCTbl(lv1, form1, pB1);
+                    cGlWS.setXcustGlTbl(lv1, form1, pB1);
+                    cGLG.setXcustGlLedgerTbl(lv1, form1, pB1);
+                    cGlPWS.setXcustGlPTbl(lv1, form1, pB1);
+                    cLCT.setXcustLocatorTbl(lv1, form1, pB1);
+                    cItemWS.setXcustITEMTbl(lv1, form1, pB1);
+                    cLcWS.setXcustGlCTbl(lv1, form1, pB1);
+                    cISubWS.setXcustSUBTbl(lv1, form1, pB1);
+                    cSupSWS.setXcustSupTbl(lv1, form1, pB1);
+                    cSupWS.setXcustSupTbl(lv1, form1, pB1);
+                    cTxCWS.setXcustTxCTbl(lv1, form1, pB1);
+                    cIUomConvWS.setXcustUOMConvertTbl(lv1, form1, pB1);
+                    cIUomWS.setXcustUOMTbl(lv1, form1, pB1);
+                    cVS.setXcustValueTbl(lv1, form1, pB1);
+                    cIOrgWS.setXcustOrgMstTbl(lv1, form1, pB1);
+                }
+            }
+            else
+            {
+                Application.Run(new XcustSyncMaster(Cm));
+            }
+
+
         }
     }
 }

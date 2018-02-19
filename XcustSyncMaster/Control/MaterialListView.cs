@@ -57,7 +57,7 @@ namespace XcustSyncMaster
                     Invalidate();
                 }
             };
-        }
+        }             
 
         protected override void OnDrawColumnHeader(DrawListViewColumnHeaderEventArgs e)
         {

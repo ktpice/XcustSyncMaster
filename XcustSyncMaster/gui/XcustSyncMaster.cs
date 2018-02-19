@@ -40,7 +40,7 @@ namespace XcustSyncMaster
         ControlLocatorMstWebService cLCT;
         ControlItemMstWebService cItemWS;
         ControlLocationsWebService cLcWS;
-        ControlPoRWebService cPoRWS;
+        //ControlPoRWebService cPoRWS;
         ControlSubInvMstWebService cISubWS;
         ControlSupplierSiteWebService cSupSWS;
         ControlSupplierWebService cSupWS;
@@ -48,6 +48,7 @@ namespace XcustSyncMaster
         ControlUomConvertMstWebService cIUomConvWS;
         ControlUomMstWebService cIUomWS;
         ControlValueSet cVS;
+        ControlOrgMstWebService cIOrgWS;
 
 
 
@@ -80,7 +81,7 @@ namespace XcustSyncMaster
             cLCT = new ControlLocatorMstWebService(Cm);
             cItemWS = new ControlItemMstWebService(Cm);
             cLcWS = new ControlLocationsWebService(Cm);
-            cPoRWS = new ControlPoRWebService(Cm);
+            //cPoRWS = new ControlPoRWebService(Cm);
             cISubWS = new ControlSubInvMstWebService(Cm);
             cSupSWS = new ControlSupplierSiteWebService(Cm);
             cSupWS = new ControlSupplierWebService(Cm);
@@ -88,6 +89,7 @@ namespace XcustSyncMaster
             cIUomConvWS = new ControlUomConvertMstWebService(Cm);
             cIUomWS = new ControlUomMstWebService(Cm);
             cVS = new ControlValueSet(Cm);
+            cIOrgWS = new ControlOrgMstWebService(Cm);
 
             initCompoment();
             pB1.Visible = false;
@@ -123,7 +125,7 @@ namespace XcustSyncMaster
 
             lb1 = new MaterialLabel();
             lb1.Font = cApWS.fV1;
-            lb1.Text = "Text File";
+            lb1.Text = "Text File ";
             lb1.AutoSize = true;
             Controls.Add(lb1);
             lb1.Location = new System.Drawing.Point(cApWS.formFirstLineX, cApWS.formFirstLineY + gapLine);
@@ -264,6 +266,10 @@ namespace XcustSyncMaster
             {
                 cVS.setXcustValueTbl(lv1, this, pB1);
             }
+            else if (Cm.initC.Mastername == "XcustOrgMstWebService")
+            {
+                cIOrgWS.setXcustOrgMstTbl(lv1, this, pB1);
+            }
             else
             {
                 cApInvWS.setXcustAPTbl(lv1, this, pB1);
@@ -288,6 +294,7 @@ namespace XcustSyncMaster
                 cIUomConvWS.setXcustUOMConvertTbl(lv1, this, pB1);
                 cIUomWS.setXcustUOMTbl(lv1, this, pB1);
                 cVS.setXcustValueTbl(lv1, this, pB1);
+                cIOrgWS.setXcustOrgMstTbl(lv1, this, pB1);
             }
         }
 
